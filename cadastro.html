@@ -39,8 +39,13 @@
       </div>
       <div class="form-group">
         <span><img src="icons/person.svg" alt="person icon" height="32" width="32"></span>
-        <label for="campoNome">Nome completo</label>
-        <input type="text" name="nome" id="campoNome" class="form-control" style="text-transform: uppercase;" required autofocus pattern="[^\s][{A-zÀ-ž\s]+" minlength="15">
+        <label for="campoNome">Nome</label>
+        <input type="text" name="nome" id="campoNome" class="form-control" style="text-transform: uppercase;" required autofocus pattern="[^\s][a-zA-ZÀ-ž\s][^\s]{1,32}$">
+      </div>
+      <div class="form-group">
+        <span><img src="icons/person.svg" alt="person icon" height="32" width="32"></span>
+        <label for="campoNome">Sobrenome</label>
+        <input type="text" name="sobrenome" id="campoSobrenome" class="form-control" style="text-transform: uppercase;" required pattern="[^\s][a-zA-ZÀ-ž\s][^\s]{1,32}$">
       </div>
     <div class="form-group">
       <span><img src="icons/envelope.svg" alt="email icon" height="32" width="32"></span>
@@ -56,6 +61,8 @@
       <span><img src="icons/house.svg" alt="campus icon" height="32" width="32"></span>
       <label for="campus">Campus</label>
         <select class="form-control" id="campus" required>
+          <option value="none" selected
+          >Selecione seu campus</option>
           <option value="Araguaina">Araguaína</option> 
           <option value="Araguatins">Araguatins</option>
           <option value="ColinasTocantins">Colinas do Tocantins</option>
@@ -69,8 +76,7 @@
           <option value="PortoNacional">Porto Nacional</option>
         </select>
     </div>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">Cadastrar</button>
-  <p class="mt-5 mb-3 text-muted text-center">© 2020</p>
+  <button class="btn btn-lg btn-primary btn-block">Cadastrar</button>
   <script src="js/cadastro.js"></script>
 </form>
 </body>
