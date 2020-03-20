@@ -31,7 +31,7 @@
     </style>
   </head>
   <body>
-    <form class="form-signin">
+    <form class="form-signin" method="POST">
       <div class="text-center mb-4">
         <!-- <img class="mb-4" src="" alt="Logo iFTO Hub" width="72" height="72">
         <h1 class="h3 mb-3 font-weight-normal">iFTO Hub</h1>
@@ -40,12 +40,12 @@
       <div class="form-group">
         <span><img src="icons/person.svg" alt="person icon" height="32" width="32"></span>
         <label for="campoNome">Nome completo</label>
-        <input type="text" name="nome" id="campoNome" class="form-control" style="text-transform: uppercase;" required autofocus>
+        <input type="text" name="nome" id="campoNome" class="form-control" style="text-transform: uppercase;" required autofocus pattern="[^\s][{A-zÀ-ž\s]+" minlength="15">
       </div>
     <div class="form-group">
       <span><img src="icons/envelope.svg" alt="email icon" height="32" width="32"></span>
       <label for="campoSenha">Email Institucional</label>
-      <input type="email" name="email" id="campoEmail" class="form-control" placeholder="exemplo@estudante.ifto.edu.br" required>
+      <input type="email" name="email" id="campoEmail" class="form-control" required minlength="22">
     </div>
     <div class="form-group">
       <span><img src="icons/lock.svg" alt="password icon" height="32" width="32"></span>
@@ -71,6 +71,7 @@
     </div>
   <button class="btn btn-lg btn-primary btn-block" type="submit">Cadastrar</button>
   <p class="mt-5 mb-3 text-muted text-center">© 2020</p>
+  <script src="js/cadastro.js"></script>
 </form>
 </body>
 </html>
