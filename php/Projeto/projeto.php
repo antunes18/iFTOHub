@@ -1,0 +1,159 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['idUser'])){
+  header('Location: ../Login/avisologar.php');
+}
+if(isset($_SESSION['idUser'])){
+  require '../conexao.php';
+  global $pdo;
+  $idautor = $_SESSION['idUser'];
+
+  $sql = "SELECT Status FROM iftohub.autor WHERE idAutor = $idautor";
+  $sql = $pdo->prepare($sql);
+  $sql->execute();
+
+  $dado = $sql->fetch();
+  $status = $dado['Status'];
+
+  if($status == 1){
+    ?>
+<!DOCTYPE html>
+<!-- saved from url=(0050)https://getbootstrap.com/docs/4.0/examples/album/# -->
+<html lang="pt-br">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="">
+  <title>Projeto</title>
+  <link rel="icon" href="../../img/logoifhub.png">
+  <link href="../../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../css/album.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Spartan&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+  <style>
+    body {
+        font-family: 'Spartan', sans-serif;
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="bg-dark collapse" id="navbarHeader">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-md-7 py-4">
+            <h4 class="text-white">Sobre</h4>
+              <p class="text-white">Esta aplicação web tem como objetivo patentear projetos científicos desenvolvidos no
+                Instituto Federal de Educação, Ciência e Tecnologia do Tocantins - IFTO. A
+                proposta é que todos os estudantes possam expor seus projetos tendo sido eles
+                aprovados ou não, formando um sistema que incentiva o crescimento do estudante
+                visionando um maior conhecimento e aprendizado do mesmo em relação à projetos
+                científicos, concluindo em fazer um repositório online para todo o corpo discente.</p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Contato</h4>
+              <ul class="list-unstyled">
+                <li><a href="../Contato/contato.php" class="text-white">Falar com os administradores</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between">
+          <a href="../index.php" class="navbar-brand d-flex align-items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+            <strong>NOME_PROJETO</strong>
+          </a>
+          <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main role="main" class="container">
+        <section class="jumbotron text-center">
+            <div class="container">
+              <h1 class="jumbotron-heading">Deseja colocar seu projeto no site?</h1>
+              <p class="lead text-muted">Preencha os campos abaixo</p>
+            </div>
+          </section>
+          <form action="processaprojeto.php" method="post" class="form-group" enctype="multipart/form-data">
+          <?php
+            if(isset($_SESSION['uploadtrue'])){
+            if($_SESSION['uploadtrue']==true){
+            ?>
+            <div class="alert alert-success" role="alert">
+              Projeto enviado com sucesso :-D!
+            </div>
+            <?php
+            }}
+            unset($_SESSION['uploadtrue']);
+            if(isset($_SESSION['uploaderror'])){
+            if($_SESSION['uploaderror']==true){
+            ?>
+          <?php
+            }}
+            unset($_SESSION['uploaderror']);
+          ?>
+            <div class="form-group">
+                <label for="InputTitulo">Título</label>
+                <input type="text" name="titulo-projeto" id="titulo-projeto" class="form-control" required> 
+            </div>
+            <div class="form-group">
+                <label for="InputOrien">Orientador(a)</label>
+                <input type="text" name="orientador" id="Orientador" class="form-control" required> 
+            </div>
+            <div class="form-group">
+                <label for="InputOrien">Coorientador(a)</label>
+                <input type="text" name="coorientador" id="Coorientador" class="form-control" required> 
+            </div>
+            <div class="form-group">
+                <label for="anop">Ano</label>
+                <input type="number" name="anop" id="anop" class="form-control" required min="2008" max="2099" step="1"> 
+            </div>
+            <div class="form-group">
+                <label for="aconhe">Área do conhecimento: </label>
+                <select class="form-control selectpicker" name="aconhe" id="aconhe" required>
+                    <option value="null" disabled >Do que se trata?</option>
+                    <option value="cet">CIÊNCIAS EXATAS E DA TERRA</option> 
+                    <option value="cb">CIÊNCIAS BIOLÓGICAS</option>
+                    <option value="eng">ENGENHARIAS</option>
+                    <option value="cs">CIÊNCIAS DA SAÚDE</option>
+                    <option value="ca">CIÊNCIAS AGRÁRIAS</option>
+                    <option value="csa">CIÊNCIAS SOCIAIS APLICADAS</option>
+                    <option value="ch">CIÊNCIAS HUMANAS</option>
+                    <option value="lla">LINGUÍSTICA, LETRAS E ARTES</option>
+                    <option value="mul">MULTIDISCIPLINAR</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="InputFile">Projeto em .PDF</label>
+                <input type="file" name="artigopdf" id="artigopdf" class="form-control" accept=".pdf" required> 
+            </div>
+            <div class="text-center">
+              <button class="btn btn-lg btn-primary">Enviar</button>
+            </div>
+
+          </form>
+    </main>
+    <script src="../../js/jquery-3.2.1.slim.min.js"></script>
+    <script src="../../js/popper.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/holder.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/additional-methods.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../js/projeto.js"></script>
+    
+</body>
+</html>
+<?php
+  }else{
+    header('Location: ../Cadastro/avisoconfirmar.php');
+  }
+}
+?>
