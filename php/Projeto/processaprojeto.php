@@ -16,7 +16,7 @@ if(!isset($_SESSION['idUser'])){
   $nomeautorp = $dado['NomeAutor']; 
 }
 
-$titulop = addslashes($_POST['titulo-projeto']);
+$titulop = addslashes($_POST['tituloprojeto']);
 $orientadorp = addslashes($_POST['orientador']);
 $coorientadorp = addslashes($_POST['coorientador']);
 $anop =  addslashes($_POST['anop']);

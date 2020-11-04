@@ -81,7 +81,7 @@ if(isset($_SESSION['idUser'])){
               <p class="lead text-muted">Preencha os campos abaixo</p>
             </div>
           </section>
-          <form action="processaprojeto.php" method="post" class="form-group" enctype="multipart/form-data">
+          <form action="processaprojeto.php" method="post" class="form-group" enctype="multipart/form-data" id="form-projeto">
           <?php
             if(isset($_SESSION['uploadtrue'])){
             if($_SESSION['uploadtrue']==true){
@@ -101,7 +101,7 @@ if(isset($_SESSION['idUser'])){
           ?>
             <div class="form-group">
                 <label for="InputTitulo">Título</label>
-                <input type="text" name="titulo-projeto" id="titulo-projeto" class="form-control" required> 
+                <input type="text" name="tituloprojeto" id="titulo-projeto" class="form-control" required> 
             </div>
             <div class="form-group">
                 <label for="InputOrien">Orientador(a)</label>
@@ -131,8 +131,8 @@ if(isset($_SESSION['idUser'])){
                 </select>
             </div>
             <div class="form-group">
-                <label for="InputFile">Projeto em .PDF</label>
-                <input type="file" name="artigopdf" id="artigopdf" class="form-control" accept=".pdf" required> 
+                <label for="InputFile">Projeto em .pdf</label>
+                <input type="file" name="artigopdf" id="artigopdf" class="form-control" accept="application/pdf" required> 
             </div>
             <div class="text-center">
               <button class="btn btn-lg btn-primary">Enviar</button>
