@@ -29,14 +29,19 @@ session_start();
         }
       }
 
-      body {
+      /* body {
         font-family: 'Spartan', sans-serif;
-      }
+      } */
 
       .error {
-        padding: 2px;
-        vertical-align:middle;
-        color: #D8000C;
+        color:#856404; 
+        background-color:#fff3cd;
+        border-color:#ffeeba;
+        position:relative;
+        padding:.75rem 1.25rem;
+        margin-bottom:1rem;
+        border:1px solid transparent;
+        border-radius:.25rem;
       }
 
       .notificationsuces {
@@ -84,33 +89,35 @@ session_start();
 
     <form class="form-signin" method="post" action="processa.php">
       <div class="text-center mb-4">
-         <img class="mb-4" src="../../img/logoifhub.png" alt="Logo iFTO Hub" width="72" height="72">
+         <a href="../index.php" title="Voltar para página inicial">
+          <img class="mb-4" src="../../img/logoifhub.png" alt="Logo iFTO Hub" width="72" height="72">
+        </a>
         <h1 class="h3 mb-3 font-weight-normal">Cadastra-se! :-) </h1>
       </div>
       <div class="form-group">
         <span><img src="../../icons/person.svg" alt="person icon" height="32" width="32"></span>
         <label for="campoNome">Nome completo</label>
-        <input type="text" name="nome" id="campoNome" class="form-control" style="text-transform: uppercase;" required autofocus>
+        <input type="text" name="nome" id="campoNome" class="form-control" style="text-transform: uppercase;" required autofocus title="Digite seu nome completo">
       </div>
     <div class="form-group">
       <span><img src="../../icons/envelope.svg" alt="email icon" height="32" width="32"></span>
       <label for="campoEmail">Email</label>
-      <input type="email" name="email" id="campoEmail" class="form-control" required minlength="11">
+      <input type="email" name="email" id="campoEmail" class="form-control" required minlength="11" title="Digite seu e-mail">
     </div>
     <div class="form-group">
       <span><img src="../../icons/lock.svg" alt="password icon" height="32" width="32"></span>
       <label for="campoSenha">Senha</label>
-      <input type="password" name="senha" id="campoSenha" class="form-control" required>
+      <input type="password" name="senha" id="campoSenha" class="form-control" required title="Digite uma senha">
     </div>
     <div class="form-group">
       <span><img src="../../icons/lock.svg" alt="password icon" height="32" width="32"></span>
       <label for="campoSenhaConfirma">Confirmar senha</label>
-      <input type="password" name="confirma" id="campoSenhaConfirma" class="form-control" required>
+      <input type="password" name="confirma" id="campoSenhaConfirma" class="form-control" required title="Digite novamente a senha">
     </div>
     <div class="form-group">
       <span><img src="../../icons/house.svg" alt="campus icon" height="32" width="32"></span>
       <label for="campuss">Campus</label>
-        <select class="form-control" name="campus" id="campuss" required>
+        <select class="form-control" name="campus" id="campuss" required title="Selecione sua unidade">
           <option value="Araguaina">Araguaína</option> 
           <option value="Araguatins">Araguatins</option>
           <option value="ColinasTocantins">Colinas do Tocantins</option>
@@ -125,8 +132,8 @@ session_start();
         </select>
     </div>
 
-  <button class="btn btn-lg  btn-block" type="submit">Cadastrar</button>
-  <button  id="reset" class="btn btn-block" type="reset">Limpar</button>
+  <button class="btn btn-lg  btn-block" type="submit" title="Confirmar cadastro">Cadastrar</button>
+  <button  id="reset" class="btn btn-block" type="reset" title="Limpar formulário">Limpar</button>
   <p class="mt-5 mb-3 text-muted text-center">© 2020</p>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
