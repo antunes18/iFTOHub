@@ -32,10 +32,8 @@ if(isset($_SESSION['idUser'])){
   <link href="../../css/bootstrap.min.css" rel="stylesheet">
   <link href="../../css/album.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Spartan&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
   <style>
-    body {
-        font-family: 'Spartan', sans-serif;
-      }
       .notificationsuces {
         padding: 4px;
         background-color: green;
@@ -45,8 +43,8 @@ if(isset($_SESSION['idUser'])){
 </head>
 <body>
   <header>
-    <div class="bg-dark collapse" id="navbarHeader">
-      <div class="container">
+    <div class="collapse" id="navbarHeader">
+    <div class="container">
         <div class="row">
           <div class="col-sm-8 col-md-7 py-4">
             <h4 class="text-white">Sobre</h4>
@@ -66,11 +64,12 @@ if(isset($_SESSION['idUser'])){
           </div>
         </div>
       </div>
+      </div>
       <div class="navbar navbar-dark bg-dark box-shadow">
         <div class="container d-flex justify-content-between">
           <a href="../index.php" class="navbar-brand d-flex align-items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-            <strong>NOME_PROJETO</strong>
+            <img src="../../img/logoifhub.png" alt="Logo iFTOHub" width="40px" height="40px">
+            <strong>iFTOHub</strong>
           </a>
           <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -103,9 +102,9 @@ if(isset($_SESSION['idUser'])){
             ?>
           <form action="processacontato.php" method="post" class="form-group">
             <div class="form-group">
-                <label for="assunto">Assunto</label>
+                <label for="assunto">Assunto:</label>
                 <select class="form-control" id="assunto" name="assunto" required>
-                    <option value="null" disabled >Do que se trata?</option>
+                    <option value="null" select >Do que se trata?</option>
                     <option value="Dúvida">Dúvida</option> 
                     <option value="Sugestão">Sugestão</option>
                     <option value="Crítica">Crítica</option>
@@ -113,10 +112,10 @@ if(isset($_SESSION['idUser'])){
                 </select>
             </div>
             <div class="form-group">
-                <label for="msg">Mensagem</label>
+                <label for="msg">Mensagem:</label>
                 <textarea name="msg" class="form-control" cols="5" rows="5" required></textarea>
             </div>
-            <button class="btn btn-lg btn-primary btn-block" style="width: auto;">Enviar</button>
+            <button class="btn btn-lg btn-block" style="width: auto;">Enviar</button>
           </form>
     </main>
     <script src="../../js/jquery-3.2.1.slim.min.js"></script>
