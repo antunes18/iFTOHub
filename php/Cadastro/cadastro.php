@@ -1,7 +1,11 @@
 <?php
 session_start();
-?>
 
+if(isset($_SESSION['idUser'])){
+  header('Location: avisologadocadastro.php');
+}
+else{
+?>
 <!DOCTYPE html>
 <!-- saved from url=(0059)https://getbootstrap.com/docs/4.4/examples/floating-labels/ -->
 <html lang="pt-br"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -144,3 +148,6 @@ session_start();
 </form>
 </body>
 </html>
+<?php
+}
+?>

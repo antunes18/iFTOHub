@@ -15,13 +15,15 @@ if(!isset($_SESSION['idUser'])){
   $dado = $sql->fetch();
   $nomeuser = $dado['NomeAutor']; 
 
-  echo "Bem vindo $nomeuser";
+  echo "
+  <div class='clearfix'>
+    <p id='welcome' class='float-left alert alert-success'>Bem-vind@, ". strtoupper($nomeuser) . "</p>
+    <a id='exit' class='alert alert-dark float-right text-center' href='Login/sair.php'>Sair</a>
+  </div>";
   ?>
-  <a href="Login/sair.php">Sair</a>
 <?php
 }
 ?>
-
 <!DOCTYPE html>
 <!-- saved from url=(0050)https://getbootstrap.com/docs/4.0/examples/album/# -->
 <html lang="pt-br">
@@ -30,18 +32,37 @@ if(!isset($_SESSION['idUser'])){
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>iFTO hub</title>
+  <title>iFTO Hub</title>
   <link rel="icon" href="../img/logoifhub.png">
   <!-- <link href="../css/bootstrap.min.css" rel="stylesheet"> -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script src="../js/jquery-3.2.1.slim.min.js"></script>
   <link href="../css/album.css" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Spartan&display=swap" rel="stylesheet">
+  <style>
+    #welcome {
+      width: 80%;
+      display:inline-block;
+      margin-right: 0px;
+      margin-left: 0px;
+      outline:none; 
+      border:none; 
+      clear:none;  
+    }
+    #exit {
+      width: 20%;
+      display:inline-block;
+      outline:none; 
+      border:none; 
+      text-decoration: none;
+      clear:none;  
+    }
+  </style>
 </head>
 <body>
   <header>
-    <div class="collapse" id="navbarHeader">
+    <div class="collapse mb-0" id="navbarHeader">
       <div class="container">
         <div class="row">
           <div class="col-sm-8 col-md-7 py-4">
@@ -222,13 +243,11 @@ if(!isset($_SESSION['idUser'])){
     <footer class="text-muted">
       <div class="container">
         <p class="float-right">
-          <a href="index.php">Voltar ao topo da página (ñ funfa ainda)</a>
+          <p class="text-center">Repositório Institucional (RI) para o IFTO.</p> 
+          <a href="index.php" class="float-right">Voltar ao topo da página (ñ funfa ainda)</a>
         </p>
-        <!-- <p>Album example is © Bootstrap, but please download and customize it for yourself!</p>
-        <p>New to Bootstrap? <a href="https://getbootstrap.com/docs/4.0/">Visit the homepage</a> or read our <a href="https://getbootstrap.com/docs/4.0/getting-started/">getting started guide</a>.</p> -->
       </div>
     </footer>
-    <script src="../js/jquery-3.2.1.slim.min.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/holder.min.js"></script>

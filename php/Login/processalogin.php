@@ -16,13 +16,16 @@ if(isset($_POST['logemail']) && !empty($_POST['logemail']) && isset($_POST['logs
             header('Location: ../index.php');
         }else{
             header('Location: login.php');
+            $_SESSION['erro'] = true;
         }
     }else{
         header('Location: login.php');
+        $_SESSION['erro'] = true;
     }
 
 }else{
     header('Location: login.php');
+    $_SESSION['erro'] = true;
 }
 
 ?>

@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if(isset($_SESSION['idUser'])){
+  header('Location: avisologado.php');
+}
+else{
+?>
 <!DOCTYPE html>
 <!-- saved from url=(0059)https://getbootstrap.com/docs/4.4/examples/floating-labels/ -->
 <html lang="pt-br"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -26,15 +34,33 @@
       body {
         font-family: 'Spartan', sans-serif;
       }
+      .notificationfail{
+        padding: 4px;
+        background-color: red;
+        color:black;
+      }
     </style>
   </head>
   <body>
     <form class="form-signin" method="POST" action="processalogin.php">
   <div class="text-center mb-4">
-    <img class="mb-4" src="../../img/logoifhub.png" alt="Aqui vai a logo do site (img)" width="72" height="72">
+    <a href="../index.php"><img class="mb-4" src="../../img/logoifhub.png" alt="Aqui vai a logo do site (img)" width="72" height="72"></a>
     <!-- <h1 class="h3 mb-3 font-weight-normal">iFTO Hub</h1> -->
     <p>Colocar um texto interessante aqui.</p>
   </div>
+  <?php
+      if(isset($_SESSION['erro'])){
+        if($_SESSION['erro'] == true){
+      ?>
+      <div class="notificationfail">
+      <p>Erro ao efetuar login!</p>
+      <p>e-mail ou senha incorretos.</p>
+      </div>
+      <?php
+        }
+      }
+      unset($_SESSION['erro']);
+      ?>
   <div class="form-group">
     <span><img src="../../icons/envelope.svg" alt="email icon" height="32" width="32"></span>
     <label for="logemail">Email</label>
@@ -55,3 +81,6 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/additional-methods.min.js"></script>
   <script src="../../js/login.js"></script>
 </body></html>
+<?php
+}
+?>
