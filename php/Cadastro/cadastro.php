@@ -7,8 +7,9 @@ if(isset($_SESSION['idUser'])){
 else{
 ?>
 <!DOCTYPE html>
-<!-- saved from url=(0059)https://getbootstrap.com/docs/4.4/examples/floating-labels/ -->
-<html lang="pt-br"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="pt-br">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <link href="https://fonts.googleapis.com/css?family=Spartan&display=swap" rel="stylesheet">
@@ -26,17 +27,11 @@ else{
         -ms-user-select: none;
         user-select: none;
       }
-
       @media (min-width: 768px) {
         .bd-placeholder-img-lg {
           font-size: 3.5rem;
         }
       }
-
-      /* body {
-        font-family: 'Spartan', sans-serif;
-      } */
-
       .error {
         color:#856404; 
         background-color:#fff3cd;
@@ -47,19 +42,16 @@ else{
         border:1px solid transparent;
         border-radius:.25rem;
       }
-
       .notificationsuces {
         padding: 4px;
         background-color: green;
         color:black;
       }
-
       .notificationfail{
         padding: 4px;
         background-color: red;
         color:black;
       }
-
     </style>
   </head>
   <body>
@@ -90,7 +82,6 @@ else{
       }
       unset($_SESSION['userexiste']);
       ?>
-
     <form class="form-signin" method="post" action="processa.php">
       <div class="text-center mb-4">
          <a href="../index.php" title="Voltar para página inicial">
@@ -122,6 +113,7 @@ else{
       <span><img src="../../icons/house.svg" alt="campus icon" height="32" width="32"></span>
       <label for="campuss">Campus</label>
         <select class="form-control" name="campus" id="campuss" required title="Selecione sua unidade">
+          <option value="null" selected>Selecione seu <i>campus</i></option>
           <option value="Araguaina">Araguaína</option> 
           <option value="Araguatins">Araguatins</option>
           <option value="ColinasTocantins">Colinas do Tocantins</option>
@@ -135,16 +127,13 @@ else{
           <option value="PortoNacional">Porto Nacional</option>
         </select>
     </div>
-
   <button class="btn btn-lg  btn-block" type="submit" title="Confirmar cadastro">Cadastrar</button>
   <button  id="reset" class="btn btn-block" type="reset" title="Limpar formulário">Limpar</button>
   <p class="mt-5 mb-3 text-muted text-center">© 2020</p>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/additional-methods.min.js"></script>
   <script src="../../js/register.js"></script>
-
 </form>
 </body>
 </html>
