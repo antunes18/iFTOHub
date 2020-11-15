@@ -18,7 +18,7 @@ if($sql->rowCount() != 0){
   header('Location: cadastro.php');
   exit;
 }else{
-  $sql = "insert into iftohub.autor (NomeAutor,Senha,Email,Campus,Status)values('$nome',md5('$senha'),'$email','$campus',0)";
+  $sql = "insert into iftohub.autor (NomeAutor,Senha,Email,Campus,Status,StatusProjeto)values('$nome',md5('$senha'),'$email','$campus',0,0)";
   $pdo->query($sql);
   $_SESSION['cadassim'] = true;
 }

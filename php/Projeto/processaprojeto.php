@@ -31,7 +31,16 @@ $coorientadorp = addslashes($_POST['coorientador']);
 $anop =  addslashes($_POST['anop']);
 $areaconhecimentop = addslashes($_POST['aconhe']);
 
+//Verificando se o usuário tem algum projeto pendente
+$sql2 = "SELECT StatusProjeto FROM iftohub.autor WHERE idAutor = $idautor";
+$sql2 = $pdo->prepare($sql2);
+$sql2->execute();
+
+$dado = $sql2->fetch();
+$statusprojeto = $dado['StatusProjeto'];
+
 if(isset($_FILES['artigopdf'])){
+    if($statusprojeto == 0){
 
     $extensao = ".pdf";
     $novonome = $titulop . "-" . $nomeautorp . $extensao;
@@ -45,6 +54,8 @@ if(isset($_FILES['artigopdf'])){
         $idProjeto = $pdo->lastInsertId();
         $sql = "INSERT INTO iftohub.autorprojeto(idAutor, idProjeto)VALUES($idautor, $idProjeto)";
         $pdo->query($sql);
+
+        $pdo->query("UPDATE iftohub.autor SET StatusProjeto='1' WHERE idAutor = '$idautor'");
 
         if($areaconhecimentop == 'cet'){
             $areaconhecimentop = 'CIÊNCIAS EXATAS E DA TERRA';
@@ -99,7 +110,10 @@ if(isset($_FILES['artigopdf'])){
     }
     else{
         $_SESSION['uploaderror'] = true;
+        header('Location:projeto.php');
     }
+}else{
+    header('Location: projetopendente.php');
 }
-header('Location:projeto.php');
+}
 ?>

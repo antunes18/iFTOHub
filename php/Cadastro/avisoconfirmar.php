@@ -1,3 +1,20 @@
+<?php
+session_start();
+
+if(isset($_SESSION['idUser'])){
+  require '../conexao.php';
+  global $pdo;
+  $idautor = $_SESSION['idUser'];
+
+  $sql = "SELECT Status FROM iftohub.autor WHERE idAutor = $idautor";
+  $sql = $pdo->prepare($sql);
+  $sql->execute();
+
+  $dado = $sql->fetch();
+  $status = $dado['Status'];
+
+  if($status == 0){
+    ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -13,7 +30,6 @@
 </head>
 <body>
     <?php
-    session_start();
 
     if(!isset($_SESSION['idUser'])){
         header('Location: ../index.php');
@@ -40,3 +56,13 @@
     </main>
 </body>
 </html>
+<?php
+  }else{
+      ?>
+      <script>
+      history.back();
+      </script>
+      <?php
+  }
+}
+?>

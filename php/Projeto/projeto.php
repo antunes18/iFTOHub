@@ -9,6 +9,7 @@ if(isset($_SESSION['idUser'])){
   global $pdo;
   $idautor = $_SESSION['idUser'];
 
+  //Verificando se o usuário confirmou a conta
   $sql = "SELECT Status FROM iftohub.autor WHERE idAutor = $idautor";
   $sql = $pdo->prepare($sql);
   $sql->execute();
