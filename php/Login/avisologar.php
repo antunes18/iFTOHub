@@ -10,27 +10,21 @@
     <link href="https://fonts.googleapis.com/css?family=Spartan&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="icon" href="../../img/logoifhub.png">
-    <style>
-        body {
-            font-family: 'Spartan', sans-serif;
-        }
-  </style>
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
 </head>
 <body>
-    <header>
-      <div class="navbar navbar-dark box-shadow">
+  <header>
+        <div class="navbar navbar-dark bg-dark box-shadow">
         <div class="container d-flex justify-content-between">
           <a href="../index.php" class="navbar-brand d-flex align-items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-            <strong>NOME_PROJETO</strong>
+            <img src="../../img/logoifhub.png" alt="Logo iFTOHub" width="40px" height="40px">
+            <strong title="Voltar para a página inicial">iFTOHub</strong>
           </a>
         </div>
-      </div>
-    </header>
+  </header>
     <div class="jumbotron text-center">
         <h1 class="display-4 animate__heartBeat">Ops...</h1>
-        <p class="lead animate__heartBeat">Faça login para poder efetuar esta ação!</p>
+        <p class="lead"><strong>Faça login para poder efetuar esta ação!</strong></p>
         <hr class="my-4">
     <div>
     <a class="btn btn-lg" href="../Cadastro/cadastro.php" role="button" title="Página de cadastro">Quero me cadastrar</a>
