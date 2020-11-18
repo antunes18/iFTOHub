@@ -71,6 +71,7 @@ else{
   </div>
   <button class="btn btn-lg btn-block" type="submit" title="Logar">Autenticar</button>
   <a href="../Cadastro/cadastro.php"  title="Ir para a página de cadastro" class="btn btn-lg btn-block">Primeiro Acesso</a>
+  <a href="esqueceusenha.php" target="_blank">esqueceu sua senha?</a>
   <p class="mt-5 mb-3 text-muted text-center">© 2020</p>
 </form>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
