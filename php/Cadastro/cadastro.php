@@ -15,8 +15,8 @@ else{
     <link href="https://fonts.googleapis.com/css?family=Spartan&display=swap" rel="stylesheet">
     <title>Cadastrar</title>
     <link rel="icon" href="../../img/logoifhub.png">
-    <link rel="stylesheet" href="../../css/floating-labels.css">
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/floating-labels.css">
     <link rel="stylesheet" href="../../css/style.css">
     <style>
       .bd-placeholder-img {
@@ -42,15 +42,10 @@ else{
         border:1px solid transparent;
         border-radius:.25rem;
       }
-      .notificationsuces {
-        padding: 4px;
-        background-color: green;
-        color:black;
-      }
-      .notificationfail{
-        padding: 4px;
-        background-color: red;
-        color:black;
+      .erro-cadastro {
+        position: fixed;
+        top: 0;
+        width: 100%;
       }
     </style>
   </head>
@@ -59,23 +54,24 @@ else{
       if(isset($_SESSION['cadassim'])){
         if($_SESSION['cadassim'] == true){
       ?>
-      <div class="notificationsuces">
-      <p>Cadastro efetuado!</p>
-      <p>Confirme sua conta acessando o link enviado ao seu e-mail</p>
-      <p>Vá para a página de login clicando <a href="../Login/login.php">aqui</a></p>
+      <div class="fixed-top text-center" role="alert">
+        <div class="alert alert-success">
+          <p class="lead font-weight-bold">Cadastro efetuado!</p>
+          <p class="lead">Confirme sua conta acessando o link enviado ao seu e-mail.</p>
+          <p class="lead">Vá para a página de login clicando <a href="../Login/login.php">aqui</a></p>
+        </div>
       </div>
       <?php
         }
       }
       unset($_SESSION['cadassim']);
       ?>
-
       <?php
       if(isset($_SESSION['userexiste'])){
         if($_SESSION['userexiste'] == true){
       ?>
-      <div class="notificationfail">
-      <p>O e-mail digitado já está sendo usado. Informe outro e tente novamente.</p>
+      <div class="erro-cadastro">
+        <p class="alert alert-danger text-center" role="alert"><strong>O e-mail digitado já está em uso. Por favor, digite outro e tente novamente.</strong></p>
       </div>
       <?php
         }
@@ -113,7 +109,7 @@ else{
       <span><img src="../../icons/house.svg" alt="campus icon" height="32" width="32"></span>
       <label for="campuss">Campus</label>
         <select class="form-control" name="campus" id="campuss" required title="Selecione sua unidade">
-          <option value="null" selected>Selecione seu <i>campus</i></option>
+          <option value="null" disabled selected>Selecione seu <i>campus</i></option>
           <option value="Araguaina">Araguaína</option> 
           <option value="Araguatins">Araguatins</option>
           <option value="ColinasTocantins">Colinas do Tocantins</option>
