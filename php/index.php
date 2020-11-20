@@ -47,8 +47,8 @@ if(!isset($_SESSION['idUser'])){
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <script src="../js/jquery-3.2.1.slim.min.js"></script>
   <link href="../css/album.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/be43ae3ae0.js"></script>
   <link rel="stylesheet" href="../css/style.css">
-  <link href="https://fonts.googleapis.com/css?family=Spartan&display=swap" rel="stylesheet">
   <style>
     #welcome {
       width: 80%;
@@ -67,6 +67,17 @@ if(!isset($_SESSION['idUser'])){
       text-decoration: none;
       clear:none;  
     }
+    #lista {
+      color: white;
+    }
+    #lista:hover {
+      color: #19882c;
+      text-decoration: none;
+    }
+    .fa, .fas {
+      font-size: 25px;
+    }
+    
   </style>
 </head>
 <body>
@@ -94,17 +105,14 @@ if(!isset($_SESSION['idUser'])){
       </div>
       <div class="navbar navbar-dark bg-dark box-shadow">
         <div class="container d-flex justify-content-between">
-          <a href="index.php" class="navbar-brand d-flex align-items-center">
+          <a href="index.php" class="navbar-brand d-flex align-items-center" title="Página inicial">
             <img src="../img/logoifhub.png" alt="Logo iFTOHub" width="40px" height="40px">
             <strong>iFTOHub</strong>
           </a>
           <?php
           if(isset($email)){
             if($email == 'hubifto@gmail.com'){
-              echo "<a href='lista.php'>É o adimir :O</a>";
-          ?>
-          <?php
-            // COLOCA O BOTÃO DE IR PRA LISTA ENTRE ESSES DOIS PHP
+              echo "<a href='lista.php' id='lista' title='Projetos pendentes'><i class='fas fa-exclamation-triangle'></i></a>";
             }
           }
           ?>
