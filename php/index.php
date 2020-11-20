@@ -12,8 +12,17 @@ if(!isset($_SESSION['idUser'])){
   $sql = $pdo->prepare($sql);
   $sql->execute();
 
+  // Selecionando nome do autor para aparecer como logado.
   $dado = $sql->fetch();
-  $nomeuser = $dado['NomeAutor']; 
+  $nomeuser = $dado['NomeAutor'];
+
+  $sql1 = "SELECT Email from iftohub.autor WHERE idAutor = $idautor";
+  $sql1 = $pdo->prepare($sql1);
+  $sql1->execute();
+
+  // Selecionando email do usuário para verificar se é o adm ou não
+  $dado1 = $sql1->fetch();
+  $email = $dado1['Email'];
 
   echo "
   <div class='clearfix'>
@@ -89,6 +98,16 @@ if(!isset($_SESSION['idUser'])){
             <img src="../img/logoifhub.png" alt="Logo iFTOHub" width="40px" height="40px">
             <strong>iFTOHub</strong>
           </a>
+          <?php
+          if(isset($email)){
+            if($email == 'hubifto@gmail.com'){
+              echo "<a href='lista.php'>É o adimir :O</a>";
+          ?>
+          <?php
+            // COLOCA O BOTÃO DE IR PRA LISTA ENTRE ESSES DOIS PHP
+            }
+          }
+          ?>
           <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>

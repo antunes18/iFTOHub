@@ -1,3 +1,31 @@
+<?php
+session_start();
+require 'conexao.php';
+global $pdo;
+
+$sql = "SELECT * FROM iftohub.autorprojeto WHERE Status = 0";
+$sql = $pdo->prepare($sql);
+$sql->execute();
+
+$numeropendente = $sql->rowCount();
+$sql1 = Array();
+
+// for($i = 1; $i <= $numeropendente; $i++) {
+//   $sql2 = "SELECT MIN(idProjeto) FROM iftohub.autorprojeto WHERE Status = 0 and AddLista = 'nao'";
+//   $sql2 = $pdo->prepare($sql2);
+//   $sql2->execute();
+//   $dado = $sql2->fetch();
+//   $idProjeto = $dado['MIN(idProjeto)'];
+  
+//   $sql1[$i] = "UPDATE iftohub.autorprojeto SET AddLista = 'sim' WHERE idProjeto = $idProjeto";
+//   $consulta = $sql1[$i];
+//   $pdo->prepare($consulta);
+//   $pdo->query($consulta);
+
+//   echo "$idProjeto";
+// }
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
