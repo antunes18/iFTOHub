@@ -2,28 +2,6 @@
 session_start();
 require 'conexao.php';
 global $pdo;
-
-$sql = "SELECT * FROM iftohub.autorprojeto WHERE Status = 0";
-$sql = $pdo->prepare($sql);
-$sql->execute();
-
-$numeropendente = $sql->rowCount();
-$sql1 = Array();
-
-// for($i = 1; $i <= $numeropendente; $i++) {
-//   $sql2 = "SELECT MIN(idProjeto) FROM iftohub.autorprojeto WHERE Status = 0 and AddLista = 'nao'";
-//   $sql2 = $pdo->prepare($sql2);
-//   $sql2->execute();
-//   $dado = $sql2->fetch();
-//   $idProjeto = $dado['MIN(idProjeto)'];
-  
-//   $sql1[$i] = "UPDATE iftohub.autorprojeto SET AddLista = 'sim' WHERE idProjeto = $idProjeto";
-//   $consulta = $sql1[$i];
-//   $pdo->prepare($consulta);
-//   $pdo->query($consulta);
-
-//   echo "$idProjeto";
-// }
 ?>
 
 <!DOCTYPE html>
@@ -77,21 +55,54 @@ $sql1 = Array();
             </div>
         </div>
     </header>
-  <template id="ItemTemplate">
-    <li data-todo-id="1">
-      <div class="projeto-item">
-        <p id="projetoItemTitle" class="projeto-item-title">AUTOR DO PROJETO - TÍTULO DO PROJETO</p>
-        <div class="projeto-item-actions">
-          <button id="confirmarProjeto" class="btn btn-success"><i class="fas fa-check"></i></button>
-        </div>
-      </div>
-    </li>
-  </template>
+    <?php
+    // Selecionando os registros
+    $sql = "SELECT * FROM iftohub.autorprojeto WHERE Status = 0 ORDER BY idProjeto ASC";
+    $sql = $pdo->prepare($sql);
+    $sql->execute();
+
+    while($contagempendente = $sql->fetch(PDO::FETCH_ASSOC)){
+      $sql3 = "SELECT Titulo FROM iftohub.projeto WHERE idProjeto = " . $contagempendente['idProjeto'];
+      $projetoautor = $pdo->prepare($sql3);
+      $projetoautor->execute();
+      $dadop = $projetoautor->fetch();
+      $projeto = $dadop['Titulo'];
+      echo "<template id='ItemTemplate'>
+            <li data-todo-id='" . $contagempendente['idProjeto'] . "'>
+            <div class='projeto-item'>
+            <p id='projetoItemTitle' class='projeto-item-title'>" . $projeto . " - ";
+
+      $sql2 = "SELECT NomeAutor FROM iftohub.autor WHERE idAutor = " . $contagempendente['idAutor'];
+      $nomeautor = $pdo->prepare($sql2);
+      $nomeautor->execute();
+      $dado = $nomeautor->fetch();
+      $nome = $dado['NomeAutor'];
+      echo $nome . "</p>
+            <div class='projeto-item-actions'>
+            <button id='confirmarProjeto' class='btn btn-success'><i class='fas fa-check'></i></button>
+            </div>
+            </div>
+            </li>
+            </template>";
+    }
+  ?>
   <main>
     <section>
       <div class="container">
         <h1>Lista de projetos</h1>
         <h2>Pendentes:</h2>
+        <?php
+        $consulta = "SELECT * FROM iftohub.autorprojeto WHERE Status = 0 ORDER BY idProjeto ASC";
+        $consulta = $pdo->prepare($consulta);
+        $consulta->execute();
+
+        $dadoconsulta = $consulta->fetch();
+        $existe = $dadoconsulta['idProjeto'];
+
+         if($existe == null){
+           echo "Não há nenhum projeto pendente.";
+         }
+        ?>
         <ul id="lista-projeto" class="lista-projeto">
         </ul>
       </div>

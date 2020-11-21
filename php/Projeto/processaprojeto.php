@@ -52,7 +52,7 @@ if(isset($_FILES['artigopdf'])){
     if($pdo->query($sql)){
         $_SESSION['uploadtrue'] = true;
         $idProjeto = $pdo->lastInsertId();
-        $sql = "INSERT INTO iftohub.autorprojeto(idAutor, idProjeto, Status, AddLista)VALUES($idautor, $idProjeto, 0,'nao')";
+        $sql = "INSERT INTO iftohub.autorprojeto(idAutor, idProjeto, Status)VALUES($idautor, $idProjeto, 0)";
         $pdo->query($sql);
 
         $pdo->query("UPDATE iftohub.autor SET StatusProjeto='1' WHERE idAutor = '$idautor'");
