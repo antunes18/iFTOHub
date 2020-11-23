@@ -62,30 +62,46 @@ try{
 }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Esqueceu sua senha?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Você já está Logado</title>
+    <link rel="icon" href="../../logoifhub.png">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/album.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="icon" href="../../img/logoifhub.png">
 </head>
 <body>
+<header>
+        <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between">
+          <a href="../index.php" class="navbar-brand d-flex align-items-center">
+            <img src="../../img/logoifhub.png" alt="Logo iFTOHub" width="40px" height="40px">
+            <strong title="Voltar para a página inicial">iFTOHub</strong>
+          </a>
+        </div>
+    </header>
+    <div class="jumbotron text-center">
+        <form action="esqueceusenha.php" method="POST">
+            <label for="email"><strong>Digite o e-mail da sua conta:</label>
+            <br>
+            <input class='form-control w-50 m-auto' placeholder="Digite seu email" type="email" name="email" required>
+            <input class="btn mt-3" type="submit" name="ok" value="Gerar Código" title="Gerar código">
+        </form>
+</div>
     <?php
     if(count($erro)>0){
         foreach($erro as $msg){
-            echo "<p>$msg</p>";
+            echo "<div class='alert alert-warning text-center w-75 m-auto' role='alert'>$msg</div>";
         }
     }
     ?>
-    <form action="esqueceusenha.php" method="POST">
-        <label for="email">Digite o e-mail da sua conta aqui:</label><br>
-        <input placeholder="Seu email..." type="email" name="email" required>
-        <input type="submit" name="ok" value="Gerar Código">
-    </form>
-
     <?php
     if(isset($_POST['ok']) && count($erro)==0){
-    echo "Enviamos um código de verificação para o e-mail digitado acima, acesse sua caixa de e-mails e digite o código <a href='cod.php'>clicando aqui</a>";
+    echo "<div class='alert alert-success text-center w-75 m-auto' role='alert'>Enviamos um código de verificação para o e-mail digitado acima. Acesse sua caixa de e-mails e digite o código <a href='cod.php'>clicando aqui</a>";
     }
     ?>
 </body>
