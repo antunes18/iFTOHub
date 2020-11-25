@@ -133,6 +133,10 @@ if(!isset($_SESSION['idUser'])){
         </div>
       </section>
       <div class="album py-5 bg-light">
+        <form class="form-inline d-flex justify-content-center mb-5">
+          <input type="text" name="barradepesquisa" id="pesquisarInput" class="form-control form-control-lg w-75 mr-3" placeholder="Procurar projetos" arial-label="Procurar projetos">
+          <i class="fas fa-search" aria-hiiden="true"></i>
+        </form>
         <div class="container">
           <div class="row">
             <div class="col-md-4">
@@ -154,7 +158,7 @@ if(!isset($_SESSION['idUser'])){
             <div class="col-md-4">
               <div class="card mb-4 box-shadow">
                 <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-text">O combate a pedofilia no Brasil.</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
@@ -168,7 +172,7 @@ if(!isset($_SESSION['idUser'])){
             <div class="col-md-4">
               <div class="card mb-4 box-shadow">
                 <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-text">Os impactos da pandemia no sistema carcerário brasileiro.</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
@@ -182,7 +186,7 @@ if(!isset($_SESSION['idUser'])){
             <div class="col-md-4">
               <div class="card mb-4 box-shadow">
                 <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-text">A democratização do acesso ao cinema no Brasil.</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
@@ -275,6 +279,18 @@ if(!isset($_SESSION['idUser'])){
         </p>
       </div>
     </footer>
+    <script>
+      // Filtro da barra de pesquisa
+      console.log("Working");
+      $(document).ready(function () {
+        $("#pesquisarInput").on("keyup", function () {
+          var value = $(this).val().toLowerCase();
+          $(".card").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+          });
+        });
+      });
+    </script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/holder.min.js"></script>
