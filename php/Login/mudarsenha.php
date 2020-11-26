@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+if(isset($_SESSION['idUser'])){
+  header('Location: ../index.php');
+}
+
 include("../conexao.php");
 require_once('../../src/PHPMailer.php');
 require_once('../../src/SMTP.php');

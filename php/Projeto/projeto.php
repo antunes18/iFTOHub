@@ -18,7 +18,26 @@ if(isset($_SESSION['idUser'])){
   $status = $dado['Status'];
 
   if($status == 1){
-    ?>
+      if(!isset($_SESSION['idUser'])){
+
+      }else{
+        $idautor = $_SESSION['idUser'];
+
+        $sql = "SELECT NomeAutor from iftohub.autor WHERE idAutor = $idautor";
+        $sql = $pdo->prepare($sql);
+        $sql->execute();
+        $dado = $sql->fetch();
+        $nomeuser = $dado['NomeAutor'];
+
+        echo "
+        <div class='clearfix'>
+          <p id='welcome' class='float-left alert alert-success'>Bem-vind@, ". strtoupper($nomeuser) . "</p>
+          <a id='exit' class='alert alert-dark float-right text-center' href='../Login/sair.php'>Sair</a>
+        </div>";
+        ?>
+      <?php
+      }
+      ?>
 <!DOCTYPE html>
 <!-- saved from url=(0050)https://getbootstrap.com/docs/4.0/examples/album/# -->
 <html lang="pt-br">
@@ -46,6 +65,23 @@ if(isset($_SESSION['idUser'])){
         border:1px solid transparent;
         border-radius:.25rem;
       }
+      #welcome {
+      width: 80%;
+      display:inline-block;
+      margin-right: 0px;
+      margin-left: 0px;
+      outline:none; 
+      border:none; 
+      clear:none;  
+    }
+    #exit {
+      width: 20%;
+      display:inline-block;
+      outline:none; 
+      border:none; 
+      text-decoration: none;
+      clear:none;  
+    }
   </style>
 </head>
 <body>

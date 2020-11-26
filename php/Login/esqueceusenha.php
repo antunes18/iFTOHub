@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+if(isset($_SESSION['idUser'])){
+    header('Location: ../index.php');
+}
+
 include("../conexao.php");
 require_once('../../src/PHPMailer.php');
 require_once('../../src/SMTP.php');
@@ -67,7 +71,7 @@ try{
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Você já está Logado</title>
+    <title>Esqueceu a senha</title>
     <link rel="icon" href="../../logoifhub.png">
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
     <link href="../../css/album.css" rel="stylesheet">
@@ -101,7 +105,8 @@ try{
     ?>
     <?php
     if(isset($_POST['ok']) && count($erro)==0){
-    echo "<div class='alert alert-success text-center w-75 m-auto' role='alert'>Enviamos um código de verificação para o e-mail digitado acima. Acesse sua caixa de e-mails e digite o código <a href='cod.php'>clicando aqui</a>";
+    echo "<div class='alert alert-success text-center w-75 m-auto' role='alert'>Enviamos um código de verificação para o e-mail digitado acima. Acesse sua caixa de e-mails e digite o código <a href='cod.php'>clicando aqui</a></div><br>";
+    echo "<div class='alert alert-warning text-center w-75 m-auto' role='alert'>Caso não tenha recebido nenhum código no seu e-mail, basta efetuar o processo anterior novamente, gerando um novo código</div>";
     }
     ?>
 </body>

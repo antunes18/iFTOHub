@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+if(isset($_SESSION['idUser'])){
+    header('Location: ../index.php');
+  }
+
 if(isset($_POST['ok'])){
 $coddigitado = addslashes($_POST['codv']);
 
