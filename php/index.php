@@ -129,6 +129,7 @@ if(!isset($_SESSION['idUser'])){
           <p class="lead text-muted">DESCRIÇÃO BREVE</p>
           <p>
             <a href="Projeto/projeto.php" class="btn my-2">Inserir projeto</a>
+            <a href="Login/login.php" class="btn my-2 ml-2" title="Ir para a página de login">Login</a>
           </p>
         </div>
       </section>
