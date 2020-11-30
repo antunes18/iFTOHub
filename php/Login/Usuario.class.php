@@ -15,6 +15,9 @@ class Usuario{
             $dado = $sql->fetch();
 
             $_SESSION['idUser'] = $dado['idAutor'];
+            if(isset($_SESSION['contagemerro'])){
+            unset($_SESSION['contagemerro']);
+            }
 
             return true;
         }else{

@@ -55,9 +55,28 @@ else{
         <p>e-mail ou senha estão incorretos.</p>
       </div>
       <?php
+      if(empty($_SESSION['contagemerro'])){
+        $_SESSION['contagemerro'] = 0;
+      }
+        if($_SESSION['contagemerro'] < 3){
+          $conta = 3 - $_SESSION['contagemerro'];
+          echo "Você ainda tem $conta tentativas para logar!";
+
+          $_SESSION['contagemerro'] = $_SESSION['contagemerro'] + 1;
+        }
+        else{
+          echo "Você atingiu o limite de tentativas de login, tente novamente em 10 minutos.<br><br>";
+          unset($_SESSION['contagemerro']);
+          $_SESSION['loginbloq'] = true;
+          $_SESSION['horatentada'] = time();
+        }
         }
       }
       unset($_SESSION['erro']);
+      if(empty($_SESSION['loginbloq'])){
+        $_SESSION['loginbloq'] = false;
+      }
+      if($_SESSION['loginbloq'] == false){
       ?>
   <div class="form-group">
     <span><img src="../../icons/envelope.svg" alt="email icon" height="32" width="32"></span>
@@ -73,6 +92,55 @@ else{
   <a href="../Cadastro/cadastro.php"  title="Ir para a página de cadastro" class="btn btn-lg btn-block">Primeiro Acesso</a>
   <a href="esqueceusenha.php" target="_blank">esqueceu sua senha?</a>
   <p class="mt-5 mb-3 text-muted text-center">© 2020</p>
+  <?php
+      }else{
+        if (isset($_SESSION['loginbloq']) && ($_SESSION['loginbloq'] == true) && (time() - $_SESSION['horatentada'] >= 600)) {
+
+          // depois de passar 10 minutos:
+          $_SESSION['loginbloq'] == false;
+          unset($_SESSION['horatentada']);
+      }
+      }
+      if(isset($_SESSION['loginbloq'])){
+      if($_SESSION['loginbloq'] == true){
+        $contaa = time() - $_SESSION['horatentada'];
+        if($contaa >=0 && $contaa <= 60){
+            $minuto = 10;
+        }
+        if($contaa >=61 && $contaa <= 120){
+          $minuto = 9;
+        }
+        if($contaa >=121 && $contaa <= 180){
+          $minuto = 8;
+        }
+        if($contaa >=181 && $contaa <= 240){
+          $minuto = 7;
+        }
+        if($contaa >=241 && $contaa <= 300){
+          $minuto = 6;
+        }
+        if($contaa >=301 && $contaa <= 360){
+          $minuto = 5;
+        }
+        if($contaa >=361 && $contaa <= 420){
+          $minuto = 4;
+        }
+        if($contaa >=421 && $contaa <= 480){
+          $minuto = 3;
+        }
+        if($contaa >=481 && $contaa <= 540){
+          $minuto = 2;
+        }
+        if($contaa >=541 && $contaa <= 600){
+          $minuto = 1;
+        }
+        echo "Ainda faltam <b>$minuto minutos</b> para tentar logar novamente!";
+        while($contaa <= 600){
+          header("Refresh: ;url=http://localhost/iFTOhub/php/Login/login.php");
+        }
+      }
+    }
+  ?>
 </form>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
