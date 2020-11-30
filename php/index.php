@@ -153,10 +153,12 @@ if(!isset($_SESSION['idUser'])){
                   <p class="card-text">Hello, World!</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <a href="https://github.com/iFTOHub/projetos-pdf/raw/main/HelloWorld.pdf">
+                      <a href="Projeto/artigos/iftohub-caso-de-uso-thiago%20antunes%20dos%20santos.pdf">
                         <button type="button" class="btn btn-sm btn-outline-secondary">Download</button>
                       </a>
-                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="window.print()">Imprimir</button>
+                      <a href="Projeto/artigos/iftohub-caso-de-uso-thiago%20antunes%20dos%20santos.pdf">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Imprimir</button>
+                      </a>
                     </div>
 <!--                     <small class="text-muted">9 mins</small> -->
                   </div>
