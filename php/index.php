@@ -53,11 +53,10 @@ if(!isset($_SESSION['idUser'])){
     #welcome {
       width: 80%;
       display:inline-block;
-      margin-right: 0px;
-      margin-left: 0px;
       outline:none; 
       border:none; 
-      clear:none;  
+      clear:none; 
+      margin: 0; 
     }
     #exit {
       width: 20%;
@@ -66,6 +65,7 @@ if(!isset($_SESSION['idUser'])){
       border:none; 
       text-decoration: none;
       clear:none;  
+      margin: 0;
     }
     #lista {
       color: white;
@@ -77,7 +77,6 @@ if(!isset($_SESSION['idUser'])){
     .fa, .fas {
       font-size: 25px;
     }
-    
   </style>
 </head>
 <body>
