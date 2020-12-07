@@ -24,6 +24,7 @@ global $pdo;
   <script src="../js/jquery-3.2.1.slim.min.js"></script>
   <link href="../css/album.css" rel="stylesheet">
   <link rel="stylesheet" href="../css/lista.css">
+  <link rel="stylesheet" href="../css/style.css">
   <script src="https://kit.fontawesome.com/be43ae3ae0.js"></script>
   <style>
     .btn {
@@ -88,19 +89,24 @@ global $pdo;
       $projetoautor->execute();
       $dadop = $projetoautor->fetch();
       $projeto = $dadop['Titulo'];
-      echo "<input type='checkbox' name='" . $contagempendente['idProjeto'] . "' value='opcao'>" . $projeto . "- ";
+      echo "<div class='card'>
+      <div class='card-body'>
+      <input type='checkbox' name=" . $contagempendente['idProjeto'] . "' value='opcao'> " . $projeto . " - ";
 
       $sql2 = "SELECT NomeAutor FROM iftohub.autor WHERE idAutor = " . $contagempendente['idAutor'];
       $nomeautor = $pdo->prepare($sql2);
       $nomeautor->execute();
       $dado = $nomeautor->fetch();
       $nome = $dado['NomeAutor'];
-      echo $nome . "</input><br>";
+      echo $nome . "</input>
+      </div>
+      </div>
+      <br>";
 
       $contarprojetos ++;
     }
     if($contarprojetos > 0){
-      echo "<br><input type='submit' name ='confirmou' value='Confirmar Projetos'>";
+      echo "<br><input  class='btn' type='submit' name ='confirmou' value='Confirmar Projetos'>";
     }
   ?>
   </form>
