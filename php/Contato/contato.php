@@ -65,7 +65,8 @@ if(isset($_SESSION['idUser'])){
       margin-left: 0px;
       outline:none; 
       border:none; 
-      clear:none;  
+      clear:none;
+      margin: 0;   
     }
     #exit {
       width: 20%;
@@ -74,6 +75,7 @@ if(isset($_SESSION['idUser'])){
       border:none; 
       text-decoration: none;
       clear:none;  
+      margin: 0; 
     }
   </style>
 </head>
