@@ -73,7 +73,7 @@ else{
         }
       }
       unset($_SESSION['erro']);
-      if(empty($_SESSION['loginbloq'])){
+      if(!isset($_SESSION['loginbloq'])){
         $_SESSION['loginbloq'] = false;
       }
       if($_SESSION['loginbloq'] == false){
@@ -94,18 +94,22 @@ else{
   <p class="mt-5 mb-3 text-muted text-center">© 2020</p>
   <?php
       }else{
-        if (isset($_SESSION['loginbloq']) && ($_SESSION['loginbloq'] == true) && (time() - $_SESSION['horatentada'] >= 600)) {
+        if (isset($_SESSION['loginbloq']) && ($_SESSION['loginbloq'] == true) && isset($_SESSION['horatentada'])){
+         if(time() - $_SESSION['horatentada'] >= 600) {
 
           // depois de passar 10 minutos:
-          $_SESSION['loginbloq'] == false;
+          unset($_SESSION['loginbloq']);
           unset($_SESSION['horatentada']);
+          header("Refresh: 0.5;url=http://localhost/iFTOhub/php/Login/login.php");
+
       }
       }
       if(isset($_SESSION['loginbloq'])){
       if($_SESSION['loginbloq'] == true){
+        if(isset($_SESSION['horatentada'])){
         $contaa = time() - $_SESSION['horatentada'];
         if($contaa >=0 && $contaa <= 60){
-            $minuto = 10;
+          $minuto = 10;
         }
         if($contaa >=61 && $contaa <= 120){
           $minuto = 9;
@@ -134,12 +138,13 @@ else{
         if($contaa >=541 && $contaa <= 600){
           $minuto = 1;
         }
+        if(isset($minuto)){
         echo "Ainda faltam <b>$minuto minutos</b> para tentar logar novamente!";
-        while($contaa <= 600){
-          header("Refresh: ;url=http://localhost/iFTOhub/php/Login/login.php");
         }
       }
+      }
     }
+  }
   ?>
 </form>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

@@ -31,6 +31,13 @@ global $pdo;
       background-color: #19882c;
       color: #ffffff;
     }
+    #btnr {
+      background-color: #FF0000;
+      color: #ffffff;
+    }
+    .selecoesvx{
+      
+    }
   </style>
 </head>
 <body>
@@ -77,8 +84,6 @@ global $pdo;
       <div class="container">
         <h1>Lista de projetos</h1>
         <h2>Pendentes:</h2>
-    <!-- Form para listar os projetos pendentes -->
-    <form class="form-signin" method="POST" action="lista.php">
     <?php
 
     $contarprojetos = 0;
@@ -89,27 +94,35 @@ global $pdo;
       $projetoautor->execute();
       $dadop = $projetoautor->fetch();
       $projeto = $dadop['Titulo'];
-      echo "<div class='card'>
+      $name = "id" . $contagempendente['idProjeto'];
+      echo "
+      <form class='form-signin' method='POST' action='lista.php'>
+      <div class='card'>
       <div class='card-body'>
-      <input type='checkbox' name=" . $contagempendente['idProjeto'] . "' value='opcao'> " . $projeto . " - ";
+      <input type='checkbox' name=" . $name . " value='opcao'> " . $projeto . " - ";
 
       $sql2 = "SELECT NomeAutor FROM iftohub.autor WHERE idAutor = " . $contagempendente['idAutor'];
       $nomeautor = $pdo->prepare($sql2);
       $nomeautor->execute();
       $dado = $nomeautor->fetch();
       $nome = $dado['NomeAutor'];
-      echo $nome . "</input>
-      </div>
-      </div>
-      <br>";
+      echo $nome . "</input>";
 
       $contarprojetos ++;
-    }
-    if($contarprojetos > 0){
-      echo "<br><input  class='btn' type='submit' name ='confirmou' value='Confirmar Projetos'>";
+
+      if($contarprojetos > 0){
+        echo "<input  class='btn' type='submit' name ='confirmou' value='V'>";
+        ?>
+        &emsp;
+        <?php
+        echo "<input  class='btn' id='btnr' type='submit' name ='reprovou' value='X'>
+        </div>
+        </div>
+        <br>";
+        echo "</form>";
+      }
     }
   ?>
-  </form>
         <?php
         $consulta = "SELECT * FROM iftohub.autorprojeto WHERE Status = 0 ORDER BY idProjeto ASC";
         $consulta = $pdo->prepare($consulta);
@@ -122,15 +135,19 @@ global $pdo;
            echo "Não há nenhum projeto pendente.";
          }
 
+         // CASO O ADM CONFIRME OS PROJETOS, ESSA AÇÃO SERÁ EXECUTADA:
          if(isset($_POST['confirmou'])){
           $sql6 = "SELECT * FROM iftohub.autorprojeto WHERE Status = 0 ORDER BY idProjeto ASC";
           $sql6 = $pdo->prepare($sql6);
           $sql6->execute();
+          
           while($contagempendente2 = $sql6->fetch(PDO::FETCH_ASSOC)){
             $idprojeto = $contagempendente2['idProjeto'];
             $idautor = $contagempendente2['idAutor'];
-            if(isset($_POST[$idprojeto])){
-              $pdo->query("UPDATE iftohub.autorprojeto SET Status='1' WHERE idProjeto = $idprojeto");
+            if(isset($_POST["$name"])){
+              if($pdo->query("UPDATE iftohub.autorprojeto SET Status='1' WHERE idProjeto = $idprojeto")){
+                echo "sucesso";
+              }
               if($pdo->query("UPDATE iftohub.autor SET StatusProjeto='0' WHERE idAutor = $idautor")){
                 
                 $sql4 = "SELECT Email from iftohub.autor WHERE idAutor = $idautor";
@@ -160,8 +177,71 @@ global $pdo;
           
                   $maill->isHTML(true);
                   $maill->Subject = 'Projeto Aprovado no site iFTOHub!';
-                  $maill->Body = "Solicitação de inserção do projeto de título: <b>$projeto</b> aprovada em nosso site, você já consegue visualizá-lo acessando a página inicial do iFTOHub!<br/><br/>";
-                  $maill->AltBody = "Solicitação de inserção do projeto de título: <b>$projeto</b> aprovada em nosso site, você já consegue visualizá-lo acessando a página inicial do iFTOHub!<br/><br/>";
+                  $maill->Body = "Solicitação de inserção do projeto de título: <b>$projeto</b> aprovada em nosso site, você já consegue visualizá-lo acessando a página inicial do iFTOHub. Além disso, sua conta já está liberada para solicitar uma nova inserção de projeto!<br/><br/>";
+                  $maill->AltBody = "Solicitação de inserção do projeto de título: <b>$projeto</b> aprovada em nosso site, você já consegue visualizá-lo acessando a página inicial do iFTOHub. Além disso, sua conta já está liberada para solicitar uma nova inserção de projeto!<br/><br/>";
+                  $maill->send();
+          
+                  header('Location: lista.php');
+                  } catch (Exception $e){
+                  echo "Erro ao enviar mensagem: {$maill->ErrorInfo}";
+                  } 
+              }
+            }
+          }
+         }
+
+        // CASO O ADM REPROVE OS PROJETOS ESSA AÇÃO SERÁ EXECUTADA:
+        if(isset($_POST['reprovou'])){
+          $sql6 = "SELECT * FROM iftohub.autorprojeto WHERE Status = 0 ORDER BY idProjeto ASC";
+          $sql6 = $pdo->prepare($sql6);
+          $sql6->execute();
+          while($contagempendente2 = $sql6->fetch(PDO::FETCH_ASSOC)){
+            $idprojeto = $contagempendente2['idProjeto'];
+            $idautor = $contagempendente2['idAutor'];
+            if(isset($_POST["$name"])){
+              if($pdo->query("DELETE FROM iftohub.autorprojeto WHERE idProjeto = $idprojeto")){
+                echo "sucesso";
+              }
+              else{
+                echo "fracasso";
+              }
+              if($pdo->query("DELETE FROM iftohub.projeto WHERE idProjeto = $idprojeto")){
+                echo "sucesso";
+              }
+              else{
+                echo "fracasso";
+              }
+              if($pdo->query("UPDATE iftohub.autor SET StatusProjeto='0' WHERE idAutor = $idautor")){
+                
+                $sql4 = "SELECT Email from iftohub.autor WHERE idAutor = $idautor";
+                $sql4 = $pdo->prepare($sql4);
+                $sql4->execute();
+
+                $dado = $sql4->fetch();
+                $emaill = $dado['Email']; 
+
+                $sql5 = "SELECT Titulo FROM iftohub.projeto WHERE idProjeto = $idprojeto";
+                $projetoautor = $pdo->prepare($sql5);
+                $projetoautor->execute();
+                $dadop = $projetoautor->fetch();
+                $projeto = $dadop['Titulo'];
+                
+                try{
+                  //$maill->SMTPDebug = SMTP::DEBUG_SERVER;
+                  $maill->isSMTP();
+                  $maill->Host = 'smtp.gmail.com';
+                  $maill->SMTPAuth = true;
+                  $maill->Username ='hubifto@gmail.com';
+                  $maill->Password ='23112019';
+                  $maill->Port = 587;
+          
+                  $maill->setFrom('hubifto@gmail.com');
+                  $maill->addAddress($emaill);
+          
+                  $maill->isHTML(true);
+                  $maill->Subject = 'Projeto Reprovado no site iFTOHub!';
+                  $maill->Body = "Solicitação de inserção do projeto de título: <b>$projeto</b> reprovada em nosso site, quando isto acontece, provavelmente o arquivo que nos enviou não se tratava de um projeto. Você já consegue inserir um novo projeto no site!<br/><br/>";
+                  $maill->AltBody = "Solicitação de inserção do projeto de título: <b>$projeto</b> reprovada em nosso site, quando isto acontece, provavelmente o arquivo que nos enviou não se tratava de um projeto. Você já consegue inserir um novo projeto no site!<br/><br/>";
                   $maill->send();
           
                   header('Location: lista.php');

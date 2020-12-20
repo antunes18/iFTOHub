@@ -25,7 +25,6 @@ if(isset($_POST['logemail']) && !empty($_POST['logemail']) && isset($_POST['logs
 
 }else{
     header('Location: login.php');
-    $_SESSION['erro'] = true;
 }
 
 ?>
