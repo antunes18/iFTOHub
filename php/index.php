@@ -49,6 +49,7 @@ if(!isset($_SESSION['idUser'])){
   <link href="../css/album.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/be43ae3ae0.js"></script>
   <link rel="stylesheet" href="../css/style.css">
+  <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
   <style>
     #welcome {
       width: 80%;
@@ -155,9 +156,7 @@ if(!isset($_SESSION['idUser'])){
                       <a href="Projeto/artigos/iftohub-caso-de-uso-thiago%20antunes%20dos%20santos.pdf">
                         <button type="button" class="btn btn-sm btn-outline-secondary">Download</button>
                       </a>
-                      <a href="Projeto/artigos/iftohub-caso-de-uso-thiago%20antunes%20dos%20santos.pdf">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Imprimir</button>
-                      </a>
+                        <button type="button" onclick="printJS('iFTOHub/php/Projeto/artigos/iftohub-caso-de-uso-thiago antunes dos santos.pdf')" class="btn btn-sm ml-2 btn-outline-secondary">Imprimir</button>
                     </div>
 <!--                     <small class="text-muted">9 mins</small> -->
                   </div>
