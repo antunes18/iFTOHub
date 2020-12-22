@@ -163,6 +163,11 @@ if(!isset($_SESSION['idUser'])){
               <div class="card mb-4 box-shadow">
                 <div class="card-body">
                   <p class="card-text">Hello, World!</p>
+                  <div hidden class="detalhes-projeto">
+                    <p>Araguaina</p>
+                    <p>Engenharias</p>
+                    <p>2020</p>
+                  </div>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <a href="Projeto/artigos/iftohub-caso-de-uso-thiago%20antunes%20dos%20santos.pdf">
@@ -179,6 +184,11 @@ if(!isset($_SESSION['idUser'])){
               <div class="card mb-4 box-shadow">
                 <div class="card-body">
                   <p class="card-text">O combate a pedofilia no Brasil.</p>
+                  <div hidden class="detalhes-projeto">
+                    <p>Palmas</p>
+                    <p>Ciências Sociais</p>
+                    <p>2020</p>
+                  </div>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
@@ -193,6 +203,11 @@ if(!isset($_SESSION['idUser'])){
               <div class="card mb-4 box-shadow">
                 <div class="card-body">
                   <p class="card-text">Os impactos da pandemia no sistema carcerário brasileiro.</p>
+                  <div hidden class="detalhes-projeto">
+                    <p>Colinas do Tocantins</p>
+                    <p>Ciências Sociais</p>
+                    <p>2019</p>
+                  </div>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
@@ -305,7 +320,7 @@ if(!isset($_SESSION['idUser'])){
       $(document).ready(function () {
         $("#pesquisarInput").on("keyup", function () {
           var value = $(this).val().toLowerCase();
-          $(".card").filter(function () {
+          $(".card*").filter(function () {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
           });
         });
