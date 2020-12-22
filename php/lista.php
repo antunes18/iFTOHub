@@ -170,6 +170,13 @@ global $pdo;
                   $maill->SMTPAuth = true;
                   $maill->Username ='hubifto@gmail.com';
                   $maill->Password ='23112019';
+                  $maill->SMTPOptions = array(
+                    'ssl' => array(
+                        'verify_peer' => false,
+                        'verify_peer_name' => false,
+                        'allow_self_signed' => true
+                    )
+                );
                   $maill->Port = 587;
           
                   $maill->setFrom('hubifto@gmail.com');
@@ -233,6 +240,13 @@ global $pdo;
                   $maill->SMTPAuth = true;
                   $maill->Username ='hubifto@gmail.com';
                   $maill->Password ='23112019';
+                  $maill->SMTPOptions = array(
+                    'ssl' => array(
+                        'verify_peer' => false,
+                        'verify_peer_name' => false,
+                        'allow_self_signed' => true
+                    )
+                );
                   $maill->Port = 587;
           
                   $maill->setFrom('hubifto@gmail.com');

@@ -10,10 +10,6 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-if(isset($_SESSION['idUser'])){
-  header('Location: ../index.php');
-}
-
 if(isset($_POST['ok'])){
 
 $email = $_SESSION['emailuser'];
@@ -67,8 +63,8 @@ if(isset($email)  and isset($novasenha)){
          catch (Exception $e){
             echo "Erro ao enviar mensagem: {$mailms->ErrorInfo}";
         }
+      }
     }
-  }
 }
 }
 ?>
@@ -80,7 +76,7 @@ if(isset($email)  and isset($novasenha)){
     <title>Redefinir Senha</title>
 </head>
 <body>
-<form class="form-signin" method="post" action="mudarsenha.php">
+<form class="form-signin" method="post" action="mudarsenhalogado.php">
       <div class="text-center mb-4">
          <a href="../index.php" title="Voltar para página inicial">
           <img class="mb-4" src="../../img/logoifhub.png" alt="Logo iFTO Hub" width="72" height="72">
@@ -103,9 +99,9 @@ if(isset($email)  and isset($novasenha)){
     if(isset($_SESSION['senharedefinida'])){
         if($_SESSION['senharedefinida'] == true){
             echo "<br>Senha modificada com sucesso, enviamos também uma mensagem ao seu e-mail!";
-            echo "<br>Vamos redirecinoná-lo(a) para a página de login...";
+            echo "<br>Vamos redirecinoná-lo(a) para a página inicial...";
             unset($_SESSION['senharedefinida']);
-            header("Refresh: 5;url=http://localhost/iFTOhub/php/Login/login.php");
+            header("Refresh: 5;url=http://localhost/iFTOhub/php/index.php");
         }
     }
     if(isset($_SESSION['senhaigual'])){

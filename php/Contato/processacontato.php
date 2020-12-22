@@ -35,6 +35,13 @@ try{
     $mailc->SMTPAuth = true;
     $mailc->Username ='contatohubifto@gmail.com';
     $mailc->Password ='23112019';
+    $mailc->SMTPOptions = array(
+      'ssl' => array(
+          'verify_peer' => false,
+          'verify_peer_name' => false,
+          'allow_self_signed' => true
+      )
+  );
     $mailc->Port = 587;
 
     $mailc->setFrom('contatohubifto@gmail.com');

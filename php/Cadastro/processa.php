@@ -45,6 +45,13 @@ $md5id = md5($idAutor);
     $mail->SMTPAuth = true;
     $mail->Username ='hubifto@gmail.com';
     $mail->Password ='23112019';
+    $mail->SMTPOptions = array(
+      'ssl' => array(
+          'verify_peer' => false,
+          'verify_peer_name' => false,
+          'allow_self_signed' => true
+      )
+  );
     $mail->Port = 587;
 
     $mail->setFrom('hubifto@gmail.com');

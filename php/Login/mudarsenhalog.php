@@ -1,10 +1,6 @@
 <?php
 session_start();
 
-if(isset($_SESSION['idUser'])){
-    header('Location: ../index.php');
-}
-
 include("../conexao.php");
 require_once('../../src/PHPMailer.php');
 require_once('../../src/SMTP.php');
@@ -59,7 +55,7 @@ try{
     $mailes->addAddress($email);
 
     $mailes->isHTML(true);
-    $mailes->Subject = "Redefina sua senha";
+    $mailes->Subject = "Solicitacao de mudanca de senha no site iFTOHub";
     $mailes->Body = "Aqui esta seu codigo de verificacao: <b>$codverifica</b>";
     $mailes->AltBody = "Aqui esta seu codigo de verificacao: <b>$codverifica</b>";
     if($mailes->send()){
@@ -96,7 +92,7 @@ try{
         </div>
     </header>
     <div class="jumbotron text-center">
-        <form action="esqueceusenha.php" method="POST">
+        <form action="mudarsenhalog.php" method="POST">
             <label for="email"><strong>Digite o e-mail da sua conta:</label>
             <br>
             <input class='form-control w-50 m-auto' placeholder="Digite seu email" type="email" name="email" required>
@@ -112,7 +108,7 @@ try{
     ?>
     <?php
     if(isset($_POST['ok']) && count($erro)==0){
-    echo "<div class='alert alert-success text-center w-75 m-auto' role='alert'>Enviamos um código de verificação para o e-mail digitado acima. Acesse sua caixa de e-mails e digite o código <a href='cod.php'>clicando aqui</a></div><br>";
+    echo "<div class='alert alert-success text-center w-75 m-auto' role='alert'>Enviamos um código de verificação para o e-mail digitado acima. Acesse sua caixa de e-mails e digite o código <a href='codlogado.php'>clicando aqui</a></div><br>";
     echo "<div class='alert alert-warning text-center w-75 m-auto' role='alert'>Caso não tenha recebido nenhum código no seu e-mail, basta efetuar o processo anterior novamente, gerando um novo código</div>";
     }
     ?>

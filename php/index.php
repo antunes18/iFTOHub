@@ -100,6 +100,18 @@ if(!isset($_SESSION['idUser'])){
                 <li><a href="Contato/contato.php" class="text-white">Falar com os administradores</a></li>
               </ul>
             </div>
+            <?php
+            if(isset($_SESSION['idUser'])){
+            ?>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Redefinir Senha</h4>
+              <ul class="list-unstyled">
+                <li><a href="Login/mudarsenhalog.php" class="text-white">Clique aqui para mudar sua senha</a></li>
+              </ul>
+            </div>
+            <?php
+            }
+            ?>
           </div>
         </div>
       </div>

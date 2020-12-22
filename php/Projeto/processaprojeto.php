@@ -92,6 +92,13 @@ if(isset($_FILES['artigopdf'])){
         $mailpp->SMTPAuth = true;
         $mailpp->Username ='hubifto@gmail.com';
         $mailpp->Password ='23112019';
+        $mailpp->SMTPOptions = array(
+            'ssl' => array(
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true
+            )
+        );
         $mailpp->Port = 587;
 
         $mailpp->setFrom('hubifto@gmail.com');
