@@ -68,33 +68,46 @@ if(isset($email)  and isset($novasenha)){
 }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <title>Redefinir Senha</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../logoifhub.png">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/album.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="icon" href="../../img/logoifhub.png">
 </head>
 <body>
+  <header>
+            <div class="navbar navbar-dark bg-dark box-shadow">
+            <div class="container d-flex justify-content-between">
+              <a href="../index.php" class="navbar-brand d-flex align-items-center">
+                <img src="../../img/logoifhub.png" alt="Logo iFTOHub" width="40px" height="40px">
+                <strong title="Voltar para a página inicial">iFTOHub</strong>
+              </a>
+            </div>
+  </header>
 <form class="form-signin" method="post" action="mudarsenhalogado.php">
-      <div class="text-center mb-4">
-         <a href="../index.php" title="Voltar para página inicial">
-          <img class="mb-4" src="../../img/logoifhub.png" alt="Logo iFTO Hub" width="72" height="72">
-        </a>
-        <h1 class="h3 mb-3 font-weight-normal">Redefina sua senha!</h1>
+<div class="text-center mb-4">
+        <h1 class="mb-3 mt-5 font-weight-normal">Redefina sua senha =)!</h1>
       </div>
-    <div class="form-group">
+    <p class="mt-5"></p>
+    <div class="form-group w-50 m-auto">
       <span><img src="../../icons/lock.svg" alt="password icon" height="32" width="32"></span>
       <label for="campoSenha">Nova senha</label>
-      <input type="password" name="senha" id="campoSenha" class="form-control" required title="Digite uma senha">
+      <input type="password" name="senha" id="campoSenha" class="form-control" required title="Digite uma senha" placeholder="Digite uma nova senha">
     </div>
-    <div class="form-group">
+    <p class="mt-5"></p>
+    <div class="form-group w-50 m-auto">
       <span><img src="../../icons/lock.svg" alt="password icon" height="32" width="32"></span>
       <label for="campoSenhaConfirma">Confirmar senha</label>
-      <input type="password" name="confirma" id="campoSenhaConfirma" class="form-control" required title="Digite novamente a senha">
+      <input type="password" name="confirma" id="campoSenhaConfirma" class="form-control" required title="Digite novamente a senha" placeholder="Digite novamente a nova senha">
     </div>
-  <button class="btn btn-lg  btn-block" type="submit" name="ok" title="Redefinir Senha">Redefinir Senha</button>
-
+    <p class="mt-5"></p>
+  <button class="btn btn-lg btn-block w-50 m-auto" type="submit" name="ok" title="Redefinir Senha">Redefinir Senha</button>
     <?php
     if(isset($_SESSION['senharedefinida'])){
         if($_SESSION['senharedefinida'] == true){
@@ -112,11 +125,6 @@ if(isset($email)  and isset($novasenha)){
       }
     }
     ?>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/additional-methods.min.js"></script>
-  <script src="../../js/register.js"></script>
 </form>
 </body>
 </html>
