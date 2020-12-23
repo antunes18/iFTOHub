@@ -99,7 +99,7 @@ global $pdo;
       <form class='form-signin' method='POST' action='lista.php'>
       <div class='card'>
       <div class='card-body'>
-      <input type='checkbox' name=" . $name . " value='opcao'> " . $projeto . " - ";
+      <input type='checkbox' name='projetos[]' value='$name'> " . $projeto . " - ";
 
       $sql2 = "SELECT NomeAutor FROM iftohub.autor WHERE idAutor = " . $contagempendente['idAutor'];
       $nomeautor = $pdo->prepare($sql2);
@@ -140,11 +140,13 @@ global $pdo;
           $sql6 = "SELECT * FROM iftohub.autorprojeto WHERE Status = 0 ORDER BY idProjeto ASC";
           $sql6 = $pdo->prepare($sql6);
           $sql6->execute();
-          
+
           while($contagempendente2 = $sql6->fetch(PDO::FETCH_ASSOC)){
             $idprojeto = $contagempendente2['idProjeto'];
             $idautor = $contagempendente2['idAutor'];
-            if(isset($_POST["$name"])){
+
+            foreach($_POST['projetos'] as $projetos){
+            if(isset($_POST["projetos"]) && "id" . $contagempendente2['idProjeto'] == $projetos){
               if($pdo->query("UPDATE iftohub.autorprojeto SET Status='1' WHERE idProjeto = $idprojeto")){
                 echo "sucesso";
               }
@@ -195,6 +197,7 @@ global $pdo;
               }
             }
           }
+        }
          }
 
         // CASO O ADM REPROVE OS PROJETOS ESSA AÇÃO SERÁ EXECUTADA:
@@ -205,7 +208,15 @@ global $pdo;
           while($contagempendente2 = $sql6->fetch(PDO::FETCH_ASSOC)){
             $idprojeto = $contagempendente2['idProjeto'];
             $idautor = $contagempendente2['idAutor'];
-            if(isset($_POST["$name"])){
+
+            $sql5 = "SELECT Titulo FROM iftohub.projeto WHERE idProjeto = $idprojeto";
+            $projetoautor = $pdo->prepare($sql5);
+            $projetoautor->execute();
+            $dadop = $projetoautor->fetch();
+            $projeto = $dadop['Titulo'];
+
+            foreach($_POST['projetos'] as $projetos){
+              if(isset($_POST["projetos"]) && "id" . $contagempendente2['idProjeto'] == $projetos){
               if($pdo->query("DELETE FROM iftohub.autorprojeto WHERE idProjeto = $idprojeto")){
                 echo "sucesso";
               }
@@ -226,12 +237,6 @@ global $pdo;
 
                 $dado = $sql4->fetch();
                 $emaill = $dado['Email']; 
-
-                $sql5 = "SELECT Titulo FROM iftohub.projeto WHERE idProjeto = $idprojeto";
-                $projetoautor = $pdo->prepare($sql5);
-                $projetoautor->execute();
-                $dadop = $projetoautor->fetch();
-                $projeto = $dadop['Titulo'];
                 
                 try{
                   //$maill->SMTPDebug = SMTP::DEBUG_SERVER;
@@ -264,6 +269,7 @@ global $pdo;
                   } 
               };
             }
+          }
          }
         }
         ?>
