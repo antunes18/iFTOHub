@@ -53,11 +53,6 @@ if(isset($_SESSION['idUser'])){
   <link href="https://fonts.googleapis.com/css?family=Spartan&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../css/style.css">
   <style>
-      .notificationsuces {
-        padding: 4px;
-        background-color: green;
-        color:black;
-      }
       #welcome {
       width: 80%;
       display:inline-block;
@@ -129,9 +124,9 @@ if(isset($_SESSION['idUser'])){
             if(isset($_SESSION['msgenviada'])){
             if($_SESSION['msgenviada'] == true){
             ?>
-            <div class="notificationsuces">
-            <p>Mensagem enviada com sucesso!</p>
-            <p>Aguarde a resposta do desenvolvedor no seu e-mail.</p>
+            <div class="alert alert-success text-center" role="alert">
+              <p class="lead">Mensagem enviada com sucesso!</p>
+              <p>Aguarde a resposta dos desenvolvedores no seu e-mail.</p>
             </div>
             <?php
             }
@@ -142,7 +137,7 @@ if(isset($_SESSION['idUser'])){
             <div class="form-group">
                 <label for="assunto">Assunto:</label>
                 <select class="form-control" id="assunto" name="assunto" required>
-                    <option value="null" select >Do que se trata?</option>
+                    <option value="null" select>Do que se trata?</option>
                     <option value="Dúvida">Dúvida</option> 
                     <option value="Sugestão">Sugestão</option>
                     <option value="Crítica">Crítica</option>
@@ -151,9 +146,9 @@ if(isset($_SESSION['idUser'])){
             </div>
             <div class="form-group">
                 <label for="msg">Mensagem:</label>
-                <textarea name="msg" class="form-control" cols="5" rows="5" required></textarea>
+                <textarea name="msg" class="form-control" cols="5" rows="5" required title="Digitar mensagem"></textarea>
             </div>
-            <button class="btn btn-lg btn-block" style="width: auto;">Enviar</button>
+            <button class="btn btn-lg btn-block" style="width: auto;" title="Enviar mensagem">Enviar</button>
           </form>
     </main>
     <script src="../../js/jquery-3.2.1.slim.min.js"></script>
