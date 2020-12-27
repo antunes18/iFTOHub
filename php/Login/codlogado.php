@@ -14,14 +14,12 @@ if($coddigitado == $codanalise){
 }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <title>Codigo de verificação</title>
-</head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../../logoifhub.png">
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
     <link href="../../css/album.css" rel="stylesheet">
