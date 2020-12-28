@@ -32,11 +32,11 @@ global $pdo;
       color: #ffffff;
     }
     #btnr {
-      background-color: #FF0000;
+      background-color: #ff0000;
       color: #ffffff;
     }
-    .selecoesvx{
-      
+    #btnr:hover {
+      background-color: #7f0000;
     }
   </style>
 </head>
@@ -111,11 +111,11 @@ global $pdo;
       $contarprojetos ++;
 
       if($contarprojetos > 0){
-        echo "<input  class='btn' type='submit' name ='confirmou' value='V'>";
+        echo "<input class='float-right btn ml-2' type='submit' name ='confirmou' value='V' title='Aprovar'>";
         ?>
         &emsp;
         <?php
-        echo "<input  class='btn' id='btnr' type='submit' name ='reprovou' value='X'>
+        echo "<input class='btn float-right' id='btnr' type='submit' name ='reprovou' value='X' title='Reprovar'>
         </div>
         </div>
         <br>";
