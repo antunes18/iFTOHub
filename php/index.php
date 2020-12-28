@@ -27,7 +27,7 @@ if(!isset($_SESSION['idUser'])){
   echo "
   <div class='clearfix'>
     <p id='welcome' class='float-left alert alert-success'>Bem-vind@, ". strtoupper($nomeuser) . "</p>
-    <a id='exit' class='alert alert-dark float-right text-center' href='Login/sair.php'>Sair</a>
+    <a id='exit' class='alert alert-dark float-right text-center' href='Login/sair.php' title='Sair da sessão'>Sair</a>
   </div>";
   ?>
 <?php
@@ -86,7 +86,7 @@ if(!isset($_SESSION['idUser'])){
       <div class="container">
         <div class="row">
           <div class="col-sm-8 col-md-7 py-4">
-            <h4 class="text-white">Sobre</h4>
+            <h4 class="text-white" title="Resumo do site">Sobre</h4>
               <p class="text-white">Esta aplicação web tem como objetivo patentear projetos científicos desenvolvidos no
                 Instituto Federal de Educação, Ciência e Tecnologia do Tocantins - IFTO. A
                 proposta é que todos os estudantes possam expor seus projetos tendo sido eles
@@ -97,16 +97,16 @@ if(!isset($_SESSION['idUser'])){
             <div class="col-sm-4 offset-md-1 py-4">
               <h4 class="text-white">Contato</h4>
               <ul class="list-unstyled">
-                <li><a href="Contato/contato.php" class="text-white">Falar com os administradores</a></li>
+                <li><a href="Contato/contato.php" class="text-white" title="Contatar desenvolvendores">Falar com os administradores</a></li>
               </ul>
             </div>
             <?php
             if(isset($_SESSION['idUser'])){
             ?>
-            <div class="col-sm-4 offset-md-1 py-4">
-              <h4 class="text-white">Redefinir Senha</h4>
+            <div class="col-md-4 py-2">
+              <h4 class="text-white">Senha</h4>
               <ul class="list-unstyled">
-                <li><a href="Login/mudarsenhalog.php" class="text-white">Clique aqui para mudar sua senha</a></li>
+                <li><a href="Login/mudarsenhalog.php" class="text-white" title="Alterar senha">Mudar sua senha</a></li>
               </ul>
             </div>
             <?php
@@ -129,7 +129,7 @@ if(!isset($_SESSION['idUser'])){
           }
           ?>
           <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon" title="Menu"></span>
           </button>
         </div>
       </div>
@@ -140,7 +140,7 @@ if(!isset($_SESSION['idUser'])){
           <h1 class="jumbotron-heading">TEXTO [h1]</h1>
           <p class="lead text-muted">DESCRIÇÃO BREVE</p>
           <p>
-            <a href="Projeto/projeto.php" class="btn my-2">Inserir projeto</a>
+            <a href="Projeto/projeto.php" class="btn my-2" title="Solicitar inserção de projeto">Inserir projeto</a>
 
             <?php
             if(!isset($_SESSION['idUser'])){
