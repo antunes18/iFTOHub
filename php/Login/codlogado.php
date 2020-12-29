@@ -37,7 +37,7 @@ if($coddigitado == $codanalise){
     </div>
 </header>
 <div class="jumbotron text-center">
-    <form action="codlogado.php" method="POST">
+    <form action="codlogado.php" method="POST" autocomplete="off">
         <label class="lead" for="codv">Digite o código de verificação aqui:</label><br>
         <input class="form-control w-50 m-auto" placeholder="Código de verificação..." type="text" name="codv" required>
         <input class="btn mt-3 w-25" type="submit" name="ok" value="Verificar">
