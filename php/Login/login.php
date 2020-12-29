@@ -15,6 +15,7 @@ else{
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/floating-labels.css">
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -37,14 +38,22 @@ else{
         margin-bottom:1rem;
         border-radius:.25rem;
       }
+      #esquecisenha {
+        color: #19882c;
+      }
+      #esquecisenha:hover {
+        color: #0a5517;
+      }
+      #alternarSenha {
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
     <form class="form-signin" method="POST" action="processalogin.php">
   <div class="text-center mb-4">
     <a href="../index.php"><img class="mb-4" src="../../img/logoifhub.png" alt="Aqui vai a logo do site (img)" width="72" height="72" title="Voltar para a página inicial"></a>
-    <!-- <h1 class="h3 mb-3 font-weight-normal">iFTO Hub</h1> -->
-    <p>Colocar um texto interessante aqui.</p>
+    <p class="lead">Bem-vinda(o) de volta!</p>
   </div>
   <?php
       if(isset($_SESSION['erro'])){
@@ -52,7 +61,7 @@ else{
       ?>
       <div class="alert alert-danger text-center" role="alert">
         <p>Erro ao efetuar login!</p>
-        <p>e-mail ou senha estão incorretos.</p>
+        <p>e-mail e/ou senha estão incorretos.</p>
       </div>
       <?php
       if(empty($_SESSION['contagemerro'])){
@@ -60,12 +69,12 @@ else{
       }
         if($_SESSION['contagemerro'] < 3){
           $conta = 3 - $_SESSION['contagemerro'];
-          echo "Você ainda tem $conta tentativas para logar!";
+          echo "<p lass='alert alert-info' role='alert'>Você ainda tem $conta tentativas para logar</p>";
 
           $_SESSION['contagemerro'] = $_SESSION['contagemerro'] + 1;
         }
         else{
-          echo "Você atingiu o limite de tentativas de login, tente novamente em 10 minutos.<br><br>";
+          echo "<p class='alert alert-warning' role='alert'>Você atingiu o limite de tentativas de login, tente novamente em 10 minutos./p><br><br>";
           unset($_SESSION['contagemerro']);
           $_SESSION['loginbloq'] = true;
           $_SESSION['horatentada'] = time();
@@ -83,14 +92,17 @@ else{
     <label for="logemail">Email</label>
     <input type="email" name="logemail" class="form-control" required autofocus title="Digite seu e-mail utilizado no cadastro">
   </div>
-  <div class="form-group">
+  <div class="form-group" id="div-senha">
     <span><img src="../../icons/lock.svg" alt="password icon" height="32" width="32"></span>
     <label for="logsenha">Senha</label>
-    <input type="password" name="logsenha" class="form-control" required title="Digite sua senha utilizada no cadastro">
+    <input type="password" name="logsenha" class="form-control" required title="Digite sua senha utilizada no cadastro" id="senha">
+    <i class="far fa-eye" id="alternarSenha"></i>
+  </div>
+  <div class="mb-4">
+    <a id="esquecisenha" href="esqueceusenha.php" target="_blank">Esqueci minha senha</a>
   </div>
   <button class="btn btn-lg btn-block" type="submit" title="Logar">Autenticar</button>
   <a href="../Cadastro/cadastro.php"  title="Ir para a página de cadastro" class="btn btn-lg btn-block">Primeiro Acesso</a>
-  <a href="esqueceusenha.php" target="_blank">esqueceu sua senha?</a>
   <p class="mt-5 mb-3 text-muted text-center">© 2020</p>
   <?php
       }else{
@@ -139,7 +151,7 @@ else{
           $minuto = 1;
         }
         if(isset($minuto)){
-        echo "Ainda faltam <b>$minuto minutos</b> para tentar logar novamente!";
+        echo "<p class='alert alert-warning' role='alert'>Ainda faltam <b>$minuto minutos</b> para tentar logar novamente!</p>";
         }
       }
       }
@@ -151,6 +163,18 @@ else{
   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/additional-methods.min.js"></script>
   <script src="../../js/login.js"></script>
+  <script>
+    const alternarSenha = document.querySelector('#alternarSenha');
+    const senha = document.querySelector("#senha");
+    alternarSenha.addEventListener('click', function (e) {
+      if (senha.type === "password") {
+        senha.type = "text";
+      } else {
+        senha.type = "password";
+      }
+      this.classList.toggle('fa-eye-slash');
+    });
+  </script>
 </body></html>
 <?php
 }
