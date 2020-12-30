@@ -12,9 +12,9 @@ else{
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Login</title>
     <link rel="icon" href="../../img/logoifhub.png">
+    <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/floating-labels.css">
-    <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <style>
       .bd-placeholder-img {
@@ -31,21 +31,14 @@ else{
         }
       }
       .error {
-        color:#856404; 
-        background-color:#fff3cd;
-        position:relative;
-        padding:.75rem 1.25rem;
-        margin-bottom:1rem;
-        border-radius:.25rem;
+        color: #CC3300;
+        font-weight: bold;
       }
       #esquecisenha {
         color: #19882c;
       }
       #esquecisenha:hover {
         color: #0a5517;
-      }
-      #alternarSenha {
-        cursor: pointer;
       }
     </style>
   </head>
@@ -159,11 +152,8 @@ else{
   }
   ?>
 </form>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/additional-methods.min.js"></script>
-  <script src="../../js/login.js"></script>
   <script>
+    console.log("Funcionando...");
     const alternarSenha = document.querySelector('#alternarSenha');
     const senha = document.querySelector("#senha");
     alternarSenha.addEventListener('click', function (e) {
@@ -175,7 +165,12 @@ else{
       this.classList.toggle('fa-eye-slash');
     });
   </script>
-</body></html>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/additional-methods.min.js"></script>
+  <script src="../../js/login.js"></script>
+</body>
+</html>
 <?php
 }
 ?>

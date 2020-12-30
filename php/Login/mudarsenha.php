@@ -83,6 +83,12 @@ if(isset($email)  and isset($novasenha)){
     <link href="../../css/album.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="icon" href="../../img/logoifhub.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <style>
+      #alternarSenha2 {
+        cursor: pointer;
+      }
+    </style>
 </head>
 <body>
 <header>
@@ -99,16 +105,18 @@ if(isset($email)  and isset($novasenha)){
         <h1 class="mb-3 mt-5 font-weight-normal">Redefina sua senha =)!</h1>
       </div>
     <p class="mt-5"></p>
-    <div class="form-group w-50 m-auto">
+    <div class="form-group w-50 m-auto" id="div-senha">
       <span><img src="../../icons/lock.svg" alt="password icon" height="32" width="32"></span>
       <label for="campoSenha">Nova senha</label>
-      <input type="password" name="senha" id="campoSenha" class="form-control" required title="Digite uma senha" placeholder="Digite uma nova senha">
+      <input type="password" name="senha" id="campoSenha" class="form-control senha" required title="Digite uma senha" placeholder="Digite uma nova senha">
+      <i class="far fa-eye" id="alternarSenha"></i>
     </div>
     <p class="mt-5"></p>
-    <div class="form-group w-50 m-auto">
+    <div class="form-group w-50 m-auto" id="div-senha">
       <span><img src="../../icons/lock.svg" alt="password icon" height="32" width="32"></span>
       <label for="campoSenhaConfirma">Confirmar senha</label>
-      <input type="password" name="confirma" id="campoSenhaConfirma" class="form-control" required title="Digite novamente a senha" placeholder="Digite novamente a nova senha">
+      <input type="password" name="confirma" id="campoSenhaConfirma" class="form-control" required title="Digite novamente a senha" placeholder="Confirme a nova senha">
+      <i class="far fa-eye" id="alternarSenha2"></i>
     </div>
     <p class="mt-5"></p>
   <button class="btn btn-lg btn-block w-50 m-auto" type="submit" name="ok" title="Redefinir Senha">Redefinir Senha</button>
@@ -130,6 +138,33 @@ if(isset($email)  and isset($novasenha)){
       }
     }
     ?>
-</form>
+
+  </form>
+  <script>
+    const alternarSenha = document.querySelector('#alternarSenha');
+    const alternarSenha2 = document.querySelector('#alternarSenha2');
+    const senha = document.querySelector("#campoSenha");
+    const senhaConfirmada = document.querySelector("#campoSenhaConfirma");
+    // Nova senha
+    alternarSenha.addEventListener('click', function (e) {
+      if (senha.type === "password") {
+        senha.type = "text";
+      }
+      else {
+        senha.type = "password";
+      }
+      this.classList.toggle('fa-eye-slash');
+    });
+    // Confirmar senha
+    alternarSenha2.addEventListener('click', function (e) {
+      if (senhaConfirmada.type === "password") {
+        senhaConfirmada.type = "text";
+      }
+      else {
+        senhaConfirmada.type = "password";
+      }
+      this.classList.toggle('fa-eye-slash');
+    });
+  </script>
 </body>
 </html>

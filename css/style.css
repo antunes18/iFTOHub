@@ -15,3 +15,17 @@
 div.navbar {
     background-color: #0a5517;
 }
+
+#div-senha {
+    position: relative;
+}
+
+#alternarSenha {
+    cursor: pointer;
+}
+
+.fa-eye {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
