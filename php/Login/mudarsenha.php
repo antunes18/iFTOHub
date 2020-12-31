@@ -120,25 +120,29 @@ if(isset($email)  and isset($novasenha)){
     </div>
     <p class="mt-5"></p>
   <button class="btn btn-lg btn-block w-50 m-auto" type="submit" name="ok" title="Redefinir Senha">Redefinir Senha</button>
-
     <?php
     if(isset($_SESSION['senharedefinida'])){
         if($_SESSION['senharedefinida'] == true){
-            echo "<br>Senha modificada com sucesso, enviamos também uma mensagem ao seu e-mail!";
-            echo "<br>Vamos redirecinoná-lo(a) para a página de login...";
+          echo "<p class='mt-3'></p>";
+          echo "<p class='alert alert-success m-auto w-50 text-center' role='alert'>Senha modificada com sucesso. Enviamos também uma mensagem ao seu e-mail.</p>";
+          echo "<p class='mt-3'></p>";
+          echo "<p class='alert alert-info m-auto w-50 text-center' role='alert'>Vamos redirecinoná-lo(a) para a página inicial...</p>";
+          echo "<p class='mt-5'></p>";
             unset($_SESSION['senharedefinida']);
             header("Refresh: 5;url=http://localhost/iFTOhub/php/Login/login.php");
         }
     }
     if(isset($_SESSION['senhaigual'])){
       if($_SESSION['senhaigual'] == true){
-        echo "<br>A nova senha não pode ser igual a anterior!<br>";
-        echo "<br>Digite uma nova senha caso queira alterar a anterior, porém se quiser manter <br> a atual basta clicar na logo do site e ir para a página inicial<br>";
+        echo "<p class='mt-3'></p>";
+        echo "<p class='alert alert-warning m-auto w-50 text-center' role='alert'>A nova senha não pode ser igual a anterior!</p>";
+        echo "<p class='mt-3'></p>";
+        echo "<p <p class='alert alert-info m-auto w-50 text-center' role='alert'>Por favor, digite uma nova senha caso queira alterar a anterior, porém se quiser manter a atual, clique ou toque na logo do site para retornar para a página inicial.</p>";
+        echo "<p class='mt-5'></p>";
         unset($_SESSION['senhaigual']);
       }
     }
     ?>
-
   </form>
   <script>
     const alternarSenha = document.querySelector('#alternarSenha');
