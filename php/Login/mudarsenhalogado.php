@@ -52,7 +52,7 @@ if(isset($email)  and isset($novasenha)){
             $mailms->addAddress($email);
 
             $mailms->isHTML(true);
-            $mailms->Subject = "Senha alterada no site iFTOHub";
+            $mailms->Subject = "Senha alterada no iFTOHub";
             $mailms->Body = "Olá, sua senha foi alterada no site iFTOHub após uma solicitação de redefinição de senha!";
             $mailms->AltBody = "Olá, sua senha foi alterada no site iFTOHub após uma solicitação de redefinição de senha!";
             if($mailms->send()){
@@ -79,6 +79,12 @@ if(isset($email)  and isset($novasenha)){
     <link href="../../css/album.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="icon" href="../../img/logoifhub.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <style>
+      #alternarSenha2 {
+        cursor: pointer;
+      }
+    </style>
 </head>
 <body>
   <header>
@@ -92,39 +98,73 @@ if(isset($email)  and isset($novasenha)){
   </header>
 <form class="form-signin" method="post" action="mudarsenhalogado.php">
 <div class="text-center mb-4">
-        <h1 class="mb-3 mt-5 font-weight-normal">Redefina sua senha =)!</h1>
+        <h1 class="mb-3 mt-5 font-weight-normal lead">Redefina sua senha:</h1>
       </div>
     <p class="mt-5"></p>
-    <div class="form-group w-50 m-auto">
+    <div class="form-group w-50 m-auto" id="div-senha">
       <span><img src="../../icons/lock.svg" alt="password icon" height="32" width="32"></span>
       <label for="campoSenha">Nova senha</label>
       <input type="password" name="senha" id="campoSenha" class="form-control" required title="Digite uma senha" placeholder="Digite uma nova senha">
+      <i class="far fa-eye" id="alternarSenha"></i>
     </div>
     <p class="mt-5"></p>
-    <div class="form-group w-50 m-auto">
+    <div class="form-group w-50 m-auto" id="div-senha">
       <span><img src="../../icons/lock.svg" alt="password icon" height="32" width="32"></span>
       <label for="campoSenhaConfirma">Confirmar senha</label>
-      <input type="password" name="confirma" id="campoSenhaConfirma" class="form-control" required title="Digite novamente a senha" placeholder="Digite novamente a nova senha">
+      <input type="password" name="confirma" id="campoSenhaConfirma" class="form-control" required title="Digite novamente a senha" placeholder="Confirme a senha">
+      <i class="far fa-eye" id="alternarSenha2"></i>
     </div>
     <p class="mt-5"></p>
   <button class="btn btn-lg btn-block w-50 m-auto" type="submit" name="ok" title="Redefinir Senha">Redefinir Senha</button>
     <?php
     if(isset($_SESSION['senharedefinida'])){
         if($_SESSION['senharedefinida'] == true){
-            echo "<br>Senha modificada com sucesso, enviamos também uma mensagem ao seu e-mail!";
-            echo "<br>Vamos redirecinoná-lo(a) para a página inicial...";
+            echo "<p class='mt-3'></p>";
+            echo "<p class='alert alert-success m-auto w-50 text-center' role='alert'>Senha modificada com sucesso. Enviamos também uma mensagem ao seu e-mail.</p>";
+            echo "<p class='mt-3'></p>";
+            echo "<p class='alert alert-info m-auto w-50 text-center' role='alert'>Vamos redirecinoná-lo(a) para a página inicial...</p>";
+            echo "<p class='mt-5'></p>";
             unset($_SESSION['senharedefinida']);
             header("Refresh: 5;url=http://localhost/iFTOhub/php/index.php");
         }
     }
     if(isset($_SESSION['senhaigual'])){
       if($_SESSION['senhaigual'] == true){
-        echo "<br>A nova senha não pode ser igual a anterior!<br>";
-        echo "<br>Digite uma nova senha caso queira alterar a anterior, porém se quiser manter <br> a atual basta clicar na logo do site e ir para a página inicial<br>";
+        echo "<p class='mt-3'></p>";
+        echo "<p class='alert alert-warning m-auto w-50 text-center' role='alert'>A nova senha não pode ser igual a anterior!</p>";
+        echo "<p class='mt-3'></p>";
+        echo "<p <p class='alert alert-info m-auto w-50 text-center' role='alert'>Por favor, digite uma nova senha caso queira alterar a anterior, porém se quiser manter a atual, clique ou toque na logo do site para retornar para a página inicial.</p>";
+        echo "<p class='mt-5'></p>";
         unset($_SESSION['senhaigual']);
       }
     }
     ?>
 </form>
+<script>
+    const alternarSenha = document.querySelector('#alternarSenha');
+    const alternarSenha2 = document.querySelector('#alternarSenha2');
+    const senha = document.querySelector("#campoSenha");
+    const senhaConfirmada = document.querySelector("#campoSenhaConfirma");
+    // Nova senha
+    alternarSenha.addEventListener('click', function (e) {
+      if (senha.type === "password") {
+        senha.type = "text";
+      }
+      else {
+        senha.type = "password";
+      }
+      this.classList.toggle('fa-eye-slash');
+    });
+    // Confirmar senha
+    alternarSenha2.addEventListener('click', function (e) {
+      if (senhaConfirmada.type === "password") {
+        senhaConfirmada.type = "text";
+      }
+      else {
+        senhaConfirmada.type = "password";
+      }
+      this.classList.toggle('fa-eye-slash');
+    });
+  </script>
 </body>
 </html>
