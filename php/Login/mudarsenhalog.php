@@ -35,6 +35,11 @@ if(isset($_POST['ok'])){
     
     $mailes = new PHPMailer(true);
 
+        $subject = "Solicitação de mudança de senha no site iFTOHub";
+        $subject = utf8_decode($subject);
+
+        $msgmailes = "Aqui está seu código de verificação:";
+        $msgmailes = utf8_decode($msgmailes);
 try{
     //$mailes->SMTPDebug = SMTP::DEBUG_SERVER;
     $mailes->isSMTP();
@@ -55,9 +60,9 @@ try{
     $mailes->addAddress($email);
 
     $mailes->isHTML(true);
-    $mailes->Subject = "Solicitacao de mudanca de senha no site iFTOHub";
-    $mailes->Body = "Aqui esta seu codigo de verificacao: <b>$codverifica</b>";
-    $mailes->AltBody = "Aqui esta seu codigo de verificacao: <b>$codverifica</b>";
+    $mailes->Subject = $subject;
+    $mailes->Body = "$msgmailes <b>$codverifica</b>";
+    $mailes->AltBody = "$msgmailes <b>$codverifica</b>";
     if($mailes->send()){
         $_SESSION['codigoverificacao'] = $codverifica;
         $_SESSION['emailuser'] = $email;

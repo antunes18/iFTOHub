@@ -3,6 +3,17 @@ session_start();
 require '../conexao.php';
 global $pdo;
 
+require_once('../../src/PHPMailer.php');
+require_once('../../src/SMTP.php');
+require_once('../../src/Exception.php');
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+$mail = new PHPMailer(true);
+
+if(isset($_POST['cadastrar'])){
 $nome=addslashes($_POST['nome']);
 $senha=addslashes($_POST['senha']);
 $email=addslashes($_POST['email']);
@@ -28,16 +39,6 @@ $md5id = md5($idAutor);
 ?>
 
 <?php
-  require_once('../../src/PHPMailer.php');
-  require_once('../../src/SMTP.php');
-  require_once('../../src/Exception.php');
-
-  use PHPMailer\PHPMailer\PHPMailer;
-  use PHPMailer\PHPMailer\SMTP;
-  use PHPMailer\PHPMailer\Exception;
-
-  $mail = new PHPMailer(true);
-
   try{
     //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
     $mail->isSMTP();
@@ -68,4 +69,7 @@ $md5id = md5($idAutor);
   } catch (Exception $e){
       echo "Erro ao enviar mensagem: {$mail->ErrorInfo}";
   }
+}else{
+  header('Location: ../Login/login.php');
+}
   ?>

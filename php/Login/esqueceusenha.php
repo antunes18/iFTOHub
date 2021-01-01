@@ -39,6 +39,9 @@ if(isset($_POST['ok'])){
     
     $mailes = new PHPMailer(true);
 
+    $msgemail = "Aqui está seu código de verificação:";
+    $msgemail = utf8_decode($msgemail);
+
 try{
     //$mailes->SMTPDebug = SMTP::DEBUG_SERVER;
     $mailes->isSMTP();
@@ -60,8 +63,8 @@ try{
 
     $mailes->isHTML(true);
     $mailes->Subject = "Redefina sua senha";
-    $mailes->Body = "Aqui esta seu codigo de verificacao: <b>$codverifica</b>";
-    $mailes->AltBody = "Aqui esta seu codigo de verificacao: <b>$codverifica</b>";
+    $mailes->Body = "$msgemail <b>$codverifica</b>";
+    $mailes->AltBody = "$msgemail <b>$codverifica</b>";
     if($mailes->send()){
         $_SESSION['codigoverificacao'] = $codverifica;
         $_SESSION['emailuser'] = $email;

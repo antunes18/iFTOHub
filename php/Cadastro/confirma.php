@@ -1,3 +1,12 @@
+<?php
+session_start();
+require '../conexao.php';
+global $pdo;
+
+if(!isset($_GET['h'])){
+    header('Location: ../Login/login.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -29,8 +38,6 @@
     <main role="main">
         <div class="jumbotron">
             <?php
-                require '../conexao.php';
-                global $pdo;
                 $h = $_GET['h'];
                 if(!empty($h)){
                     $pdo->query("UPDATE iftohub.autor SET status='1' WHERE MD5(idAutor) = '$h'");

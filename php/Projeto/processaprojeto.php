@@ -85,6 +85,12 @@ if(isset($_FILES['artigopdf'])){
             $areaconhecimentop = 'MULTIDISCIPLINAR';
         }
 
+        $subject = 'Uma nova solicitação de inserção de projeto foi criada!';
+        $subject = utf8_decode($subject);
+
+        $msgmailpp = "Solicitação de inserção do projeto de título: <b>$titulop</b> <br/><br/>Criada por: <b>$nomeautorp</b> <br/><br/>Área do conhecimento: <b>$areaconhecimentop</b>";
+        $msgmailpp = utf8_decode($msgmailpp);
+
         try{
         //$mailpp->SMTPDebug = SMTP::DEBUG_SERVER;
         $mailpp->isSMTP();
@@ -105,9 +111,9 @@ if(isset($_FILES['artigopdf'])){
         $mailpp->addAddress('hubifto@gmail.com');
 
         $mailpp->isHTML(true);
-        $mailpp->Subject = 'Uma nova solicitacao de insercao de projeto foi criada!';
-        $mailpp->Body = "Solicitação de inserção do projeto de título: <b>$titulop</b> <br/><br/>Criada por: <b>$nomeautorp</b> <br/><br/>Área do conhecimento: <b>$areaconhecimentop</b>";
-        $mailpp->AltBody = "Solicitação de inserção do projeto de título: <b>$titulop</b> <br/><br/>Criada por: <b>$nomeautorp</b> <br/><br/>Área do conhecimento: <b>$areaconhecimentop</b>";
+        $mailpp->Subject = $subject;
+        $mailpp->Body = $msgmailpp;
+        $mailpp->AltBody = $msgmailpp;
         $mailpp->send();
 
         header('Location: projeto.php');

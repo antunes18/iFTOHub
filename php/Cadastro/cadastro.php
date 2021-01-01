@@ -123,7 +123,7 @@ else{
           <option value="PortoNacional">Porto Nacional</option>
         </select>
     </div>
-  <button class="btn btn-lg  btn-block" type="submit" title="Confirmar cadastro">Cadastrar</button>
+  <button class="btn btn-lg  btn-block" type="submit" title="Confirmar cadastro" name="cadastrar">Cadastrar</button>
   <button  id="reset" class="btn btn-block" type="reset" title="Limpar formulário">Limpar</button>
   <p class="mt-5 mb-3 text-muted text-center">© 2020</p>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

@@ -148,7 +148,7 @@ if(isset($_SESSION['idUser'])){
                 <label for="msg">Mensagem:</label>
                 <textarea name="msg" class="form-control" cols="5" rows="5" required title="Digitar mensagem"></textarea>
             </div>
-            <button class="btn btn-lg btn-block" style="width: auto;" title="Enviar mensagem">Enviar</button>
+            <button type="submit" class="btn btn-lg btn-block" style="width: auto;" title="Enviar mensagem" name="envioucontato">Enviar</button>
           </form>
     </main>
     <script src="../../js/jquery-3.2.1.slim.min.js"></script>

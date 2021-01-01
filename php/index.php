@@ -2,7 +2,7 @@
 session_start();
 
 if(!isset($_SESSION['idUser'])){
-
+  header('Location: Login/avisologar.php');
 }else{
   require 'conexao.php';
   global $pdo;
@@ -141,14 +141,6 @@ if(!isset($_SESSION['idUser'])){
           <p class="lead text-muted">DESCRIÇÃO BREVE</p>
           <p>
             <a href="Projeto/projeto.php" class="btn my-2" title="Solicitar inserção de projeto">Inserir projeto</a>
-
-            <?php
-            if(!isset($_SESSION['idUser'])){
-            ?>
-            <a href="Login/login.php" class="btn my-2 ml-2" title="Ir para a página de login">Login</a>
-            <?php
-            }
-            ?>
           </p>
         </div>
       </section>

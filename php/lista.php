@@ -136,7 +136,7 @@ global $pdo;
          }
 
          // CASO O ADM CONFIRME OS PROJETOS, ESSA AÇÃO SERÁ EXECUTADA:
-         if(isset($_POST['confirmou'])){
+         if(isset($_POST['confirmou']) && isset($_POST['projetos'])){
           $sql6 = "SELECT * FROM iftohub.autorprojeto WHERE Status = 0 ORDER BY idProjeto ASC";
           $sql6 = $pdo->prepare($sql6);
           $sql6->execute();
@@ -165,6 +165,9 @@ global $pdo;
                 $dadop = $projetoautor->fetch();
                 $projeto = $dadop['Titulo'];
                 
+                $msgmaill = "Solicitação de inserção do projeto de título: <b>$projeto</b> aprovada em nosso site, você já consegue visualizá-lo acessando a página inicial do iFTOHub. Além disso, sua conta já está liberada para solicitar uma nova inserção de projeto!<br/><br/>";
+                $msgmaill = utf8_decode($msgmaill);
+
                 try{
                   //$maill->SMTPDebug = SMTP::DEBUG_SERVER;
                   $maill->isSMTP();
@@ -186,8 +189,8 @@ global $pdo;
           
                   $maill->isHTML(true);
                   $maill->Subject = 'Projeto Aprovado no site iFTOHub!';
-                  $maill->Body = "Solicitação de inserção do projeto de título: <b>$projeto</b> aprovada em nosso site, você já consegue visualizá-lo acessando a página inicial do iFTOHub. Além disso, sua conta já está liberada para solicitar uma nova inserção de projeto!<br/><br/>";
-                  $maill->AltBody = "Solicitação de inserção do projeto de título: <b>$projeto</b> aprovada em nosso site, você já consegue visualizá-lo acessando a página inicial do iFTOHub. Além disso, sua conta já está liberada para solicitar uma nova inserção de projeto!<br/><br/>";
+                  $maill->Body = $msgmaill;
+                  $maill->AltBody = $msgmaill;
                   $maill->send();
           
                   header('Location: lista.php');
@@ -238,6 +241,8 @@ global $pdo;
                 $dado = $sql4->fetch();
                 $emaill = $dado['Email']; 
                 
+                $msgmaillr = "Solicitação de inserção do projeto de título: <b>$projeto</b> reprovada em nosso site, quando isto acontece, provavelmente o arquivo que nos enviou não se tratava de um projeto. Você já consegue inserir um novo projeto no site!<br/><br/>";
+                $msgmaillr = utf8_decode($msgmaillr);
                 try{
                   //$maill->SMTPDebug = SMTP::DEBUG_SERVER;
                   $maill->isSMTP();
@@ -259,8 +264,8 @@ global $pdo;
           
                   $maill->isHTML(true);
                   $maill->Subject = 'Projeto Reprovado no site iFTOHub!';
-                  $maill->Body = "Solicitação de inserção do projeto de título: <b>$projeto</b> reprovada em nosso site, quando isto acontece, provavelmente o arquivo que nos enviou não se tratava de um projeto. Você já consegue inserir um novo projeto no site!<br/><br/>";
-                  $maill->AltBody = "Solicitação de inserção do projeto de título: <b>$projeto</b> reprovada em nosso site, quando isto acontece, provavelmente o arquivo que nos enviou não se tratava de um projeto. Você já consegue inserir um novo projeto no site!<br/><br/>";
+                  $maill->Body = $msgmaillr;
+                  $maill->AltBody = $msgmaillr;
                   $maill->send();
           
                   header('Location: lista.php');

@@ -1,7 +1,21 @@
 <?php
 session_start();
-if(!isset($_SESSION['idUser'])){
 
+require_once('../../src/PHPMailer.php');
+require_once('../../src/SMTP.php');
+require_once('../../src/Exception.php');
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+$mailc = new PHPMailer(true);
+
+if(!isset($_POST['envioucontato'])){
+  header('Location: ../Login/login.php');
+}else{
+if(!isset($_SESSION['idUser'])){
+  header('Location: ../Login/login.php');
 }else{
   require '../conexao.php';
   global $pdo;
@@ -18,16 +32,8 @@ if(!isset($_SESSION['idUser'])){
 $assunto = addslashes($_POST['assunto']);
 $msg = addslashes($_POST['msg']);
 
-require_once('../../src/PHPMailer.php');
-require_once('../../src/SMTP.php');
-require_once('../../src/Exception.php');
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
-
-$mailc = new PHPMailer(true);
-
+$assunto = utf8_decode($assunto);
+$msg = utf8_decode($msg);
 try{
     //$mailc->SMTPDebug = SMTP::DEBUG_SERVER;
     $mailc->isSMTP();
@@ -43,7 +49,6 @@ try{
       )
   );
     $mailc->Port = 587;
-
     $mailc->setFrom('contatohubifto@gmail.com');
     $mailc->addAddress('contatohubifto@gmail.com');
 
@@ -63,4 +68,5 @@ try{
   } catch (Exception $e){
       echo "Erro ao enviar mensagem: {$mailc->ErrorInfo}";
   }
+}
 ?>
