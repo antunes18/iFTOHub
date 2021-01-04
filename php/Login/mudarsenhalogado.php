@@ -74,7 +74,7 @@ if(isset($email)  and isset($novasenha)){
     <meta charset="UTF-8">
     <title>Redefinir Senha</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../../logoifhub.png">
+    <link rel="icon" href="../../img/logoifhub.png">
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
     <link href="../../css/album.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/style.css">
@@ -140,6 +140,10 @@ if(isset($email)  and isset($novasenha)){
     }
     ?>
 </form>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/additional-methods.min.js"></
+<script src="../../js/register.js"></script>
 <script>
     const alternarSenha = document.querySelector('#alternarSenha');
     const alternarSenha2 = document.querySelector('#alternarSenha2');

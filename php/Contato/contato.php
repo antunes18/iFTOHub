@@ -137,7 +137,7 @@ if(isset($_SESSION['idUser'])){
             <div class="form-group">
                 <label for="assunto">Assunto:</label>
                 <select class="form-control" id="assunto" name="assunto" required>
-                    <option value="null" select>Do que se trata?</option>
+                    <option select disabled>Do que se trata?</option>
                     <option value="Dúvida">Dúvida</option> 
                     <option value="Sugestão">Sugestão</option>
                     <option value="Crítica">Crítica</option>

@@ -2,7 +2,7 @@
 session_start();
 
 if(!isset($_SESSION['idUser'])){
-  header('Location: Login/avisologar.php');
+  header('Location: Login/login.php');
 }else{
   require 'conexao.php';
   global $pdo;
@@ -183,8 +183,10 @@ if(!isset($_SESSION['idUser'])){
                   </div>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                      <a href="Projeto/artigos/ADEMIR-pedro%20sites.pdf">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Baixar</button>
+                      </a>
+                      <button type="button" onclick="printJS('iFTOHub/php/Projeto/artigos/TESTE-Ching Chang Hon Chi.pdf')"class="btn btn-sm btn-outline-secondary">Imprimir</button>
                     </div>
                     <small class="text-muted">9 mins</small>
                   </div>

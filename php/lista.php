@@ -124,17 +124,18 @@ global $pdo;
     }
   ?>
         <?php
-        $consulta = "SELECT * FROM iftohub.autorprojeto WHERE Status = 0 ORDER BY idProjeto ASC";
+        $consulta = "SELECT COUNT(idProjeto) FROM iftohub.autorprojeto WHERE Status = 0";
         $consulta = $pdo->prepare($consulta);
         $consulta->execute();
 
         $dadoconsulta = $consulta->fetch();
-        $existe = $dadoconsulta['idProjeto'];
+        $ribamar = $dadoconsulta;
 
-         if($existe == null){
-           echo "Não há nenhum projeto pendente.";
-         }
+        if(in_array('0', $ribamar)){
+          echo "Não há nenhum projeto pendente.";
+        }
 
+  
          // CASO O ADM CONFIRME OS PROJETOS, ESSA AÇÃO SERÁ EXECUTADA:
          if(isset($_POST['confirmou']) && isset($_POST['projetos'])){
           $sql6 = "SELECT * FROM iftohub.autorprojeto WHERE Status = 0 ORDER BY idProjeto ASC";
