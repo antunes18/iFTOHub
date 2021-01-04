@@ -1,3 +1,36 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['idUser']))
+{
+    header('Location: Login/login.php');
+}
+else
+{
+    require 'conexao.php';
+    global $pdo;
+    $idautor = $_SESSION['idUser'];
+    $sql = "SELECT NomeAutor from iftohub.autor WHERE idAutor = $idautor";
+    $sql = $pdo->prepare($sql);
+    $sql->execute();
+    // Selecionando nome do autor para aparecer como logado.
+    $dado = $sql->fetch();
+    $nomeuser = $dado['NomeAutor'];
+    $sql1 = "SELECT Email from iftohub.autor WHERE idAutor = $idautor";
+    $sql1 = $pdo->prepare($sql1);
+    $sql1->execute();
+    // Selecionando email do usuário para verificar se é o adm ou não
+    $dado1 = $sql1->fetch();
+    $email = $dado1['Email'];
+    echo "
+  <div class='clearfix'>
+    <p id='welcome' class='float-left alert alert-success'>Bem-vind@, " . strtoupper($nomeuser) . "</p>
+    <a id='exit' class='alert alert-dark float-right text-center' href='Login/sair.php' title='Sair da sessão'>Sair</a>
+  </div>";
+?>
+<?php
+}
+?>
 <!DOCTYPE html>
 <!-- saved from url=(0050)https://getbootstrap.com/docs/4.0/examples/album/# -->
 <html lang="pt-br">
