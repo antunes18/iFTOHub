@@ -14,28 +14,28 @@
 		<script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
 		<style>
 			#welcome {
-        width: 80%;
-        display:inline-block;
-        outline:none; 
-        border:none; 
-        clear:none; 
-        margin: 0; 
+				width: 80%;
+				display:inline-block;
+				outline:none; 
+				border:none; 
+				clear:none; 
+				margin: 0; 
 			}
 			#exit {
-        width: 20%;
-        display:inline-block;
-        outline:none; 
-        border:none; 
-        text-decoration: none;
-        clear:none;  
-        margin: 0;
+				width: 20%;
+				display:inline-block;
+				outline:none; 
+				border:none; 
+				text-decoration: none;
+				clear:none;  
+				margin: 0;
 			}
 			#lista {
 			  color: white;
 			}
 			#lista:hover {
-        color: #19882c;
-        text-decoration: none;
+				color: #19882c;
+				text-decoration: none;
 			}
 			.fa, .fas {
 			  font-size: 25px;
