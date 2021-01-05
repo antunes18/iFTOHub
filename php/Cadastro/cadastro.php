@@ -12,7 +12,7 @@ else{
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <link href="https://fonts.googleapis.com/css?family=Spartan&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <title>Cadastrar</title>
     <link rel="icon" href="../../img/logoifhub.png">
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -33,19 +33,16 @@ else{
         }
       }
       .error {
-        color:#856404; 
-        background-color:#fff3cd;
-        border-color:#ffeeba;
-        position:relative;
-        padding:.75rem 1.25rem;
-        margin-bottom:1rem;
-        border:1px solid transparent;
-        border-radius:.25rem;
+        color: #CC3300;
+        font-weight: bold;
       }
       .erro-cadastro {
         position: fixed;
         top: 0;
         width: 100%;
+      }
+      #reset {
+        width: 50%;
       }
     </style>
   </head>
@@ -83,7 +80,7 @@ else{
          <a href="../index.php" title="Voltar para página inicial">
           <img class="mb-4" src="../../img/logoifhub.png" alt="Logo iFTO Hub" width="72" height="72">
         </a>
-        <h1 class="h3 mb-3 font-weight-normal">Cadastra-se! :-) </h1>
+        <h1 class="h3 mb-3 font-weight-normal">Cadastre-se</h1>
       </div>
       <div class="form-group">
         <span><img src="../../icons/person.svg" alt="person icon" height="32" width="32"></span>
@@ -92,24 +89,26 @@ else{
       </div>
     <div class="form-group">
       <span><img src="../../icons/envelope.svg" alt="email icon" height="32" width="32"></span>
-      <label for="campoEmail">Email</label>
+      <label for="campoEmail"><i>Email</i></label>
       <input type="email" name="email" id="campoEmail" class="form-control" required minlength="11" title="Digite seu e-mail">
     </div>
-    <div class="form-group">
+    <div class="form-group" id="div-senha">
       <span><img src="../../icons/lock.svg" alt="password icon" height="32" width="32"></span>
       <label for="campoSenha">Senha</label>
       <input type="password" name="senha" id="campoSenha" class="form-control" required title="Digite uma senha">
+      <i class="far fa-eye" id="alternarSenha"></i>
     </div>
-    <div class="form-group">
+    <div class="form-group" id="div-senha">
       <span><img src="../../icons/lock.svg" alt="password icon" height="32" width="32"></span>
       <label for="campoSenhaConfirma">Confirmar senha</label>
       <input type="password" name="confirma" id="campoSenhaConfirma" class="form-control" required title="Digite novamente a senha">
+      <i class="far fa-eye" id="alternarSenha2"></i>
     </div>
     <div class="form-group">
       <span><img src="../../icons/house.svg" alt="campus icon" height="32" width="32"></span>
-      <label for="campuss">Campus</label>
+      <label for="campuss"><i>Campus</i></label>
         <select class="form-control" name="campus" id="campuss" required title="Selecione sua unidade">
-          <option value="null" disabled selected>Selecione seu <i>campus</i></option>
+          <option value="null" disabled selected>Selecione seu campus</option>
           <option value="Araguaina">Araguaína</option> 
           <option value="Araguatins">Araguatins</option>
           <option value="ColinasTocantins">Colinas do Tocantins</option>
@@ -123,9 +122,35 @@ else{
           <option value="PortoNacional">Porto Nacional</option>
         </select>
     </div>
-  <button class="btn btn-lg  btn-block" type="submit" title="Confirmar cadastro" name="cadastrar">Cadastrar</button>
-  <button  id="reset" class="btn btn-block" type="reset" title="Limpar formulário">Limpar</button>
+  <button class="btn btn-lg  btn-block mb-3" type="submit" title="Confirmar cadastro" name="cadastrar">Cadastrar</button>
+  <button  id="reset" class="btn btn-block m-auto" type="reset" title="Limpar formulário">Limpar</button>
   <p class="mt-5 mb-3 text-muted text-center">© 2020</p>
+  <script>
+    const alternarSenha = document.querySelector('#alternarSenha');
+    const alternarSenha2 = document.querySelector('#alternarSenha2');
+    const senha = document.querySelector("#campoSenha");
+    const senhaConfirmada = document.querySelector("#campoSenhaConfirma");
+    // Senha
+    alternarSenha.addEventListener('click', function (e) {
+      if (senha.type === "password") {
+        senha.type = "text";
+      }
+      else {
+        senha.type = "password";
+      }
+      this.classList.toggle('fa-eye-slash');
+    });
+    // Confirmar senha
+    alternarSenha2.addEventListener('click', function (e) {
+      if (senhaConfirmada.type === "password") {
+        senhaConfirmada.type = "text";
+      }
+      else {
+        senhaConfirmada.type = "password";
+      }
+      this.classList.toggle('fa-eye-slash');
+    });
+  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/additional-methods.min.js"></script>
