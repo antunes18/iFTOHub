@@ -129,9 +129,9 @@ global $pdo;
         $consulta->execute();
 
         $dadoconsulta = $consulta->fetch();
-        $ribamar = $dadoconsulta;
+        $dadoc = $dadoconsulta;
 
-        if(in_array('0', $ribamar)){
+        if(in_array('0', $dadoc)){
           echo "Não há nenhum projeto pendente.";
         }
 
