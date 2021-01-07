@@ -1,3 +1,36 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['idUser']))
+{
+    header('Location: ../Login/login.php');
+}
+else
+{
+    require '../conexao.php';
+    global $pdo;
+    $idautor = $_SESSION['idUser'];
+    $sql = "SELECT NomeAutor from iftohub.autor WHERE idAutor = $idautor";
+    $sql = $pdo->prepare($sql);
+    $sql->execute();
+    // Selecionando nome do autor para aparecer como logado.
+    $dado = $sql->fetch();
+    $nomeuser = $dado['NomeAutor'];
+    $sql1 = "SELECT Email from iftohub.autor WHERE idAutor = $idautor";
+    $sql1 = $pdo->prepare($sql1);
+    $sql1->execute();
+    // Selecionando email do usuário para verificar se é o adm ou não
+    $dado1 = $sql1->fetch();
+    $email = $dado1['Email'];
+    echo "
+  <div class='clearfix'>
+    <p id='welcome' class='float-left alert alert-success'>Bem-vind@, " . strtoupper($nomeuser) . "</p>
+    <a id='exit' class='alert alert-dark float-right text-center' href='../Login/sair.php' title='Sair da sessão'>Sair</a>
+  </div>";
+?>
+<?php
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
    <head>
@@ -92,7 +125,7 @@
                <?php
                   if(isset($email)){
                     if($email == 'hubifto@gmail.com'){
-                      echo "<a href='lista.php' id='lista' title='Projetos pendentes'><i class='fas fa-exclamation-triangle'></i></a>";
+                      echo "<a href='../lista.php' id='lista' title='Projetos pendentes'><i class='fas fa-exclamation-triangle'></i></a>";
                     }
                   }
                   ?>
@@ -291,7 +324,7 @@
          <div class="container">
             <p class="float-right">
             <p class="text-center">Repositório Institucional (RI) para o IFTO.</p>
-            <a href="index.php" class="float-right">Voltar ao topo da página (ñ funfa ainda)</a>
+            <a href="pagina2.php" class="float-right">Voltar ao topo da página (ñ funfa ainda)</a>
             </p>
          </div>
       </footer>
