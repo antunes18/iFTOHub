@@ -11,18 +11,30 @@ global $pdo;
         use PHPMailer\PHPMailer\Exception;
 
         $mailpp = new PHPMailer(true);
+        $mailpp2 = new PHPMailer(true);
 
 if(!isset($_SESSION['idUser'])){
-
+    header('Location: ../Login/avisologar.php');
 }else{
   $idautor = $_SESSION['idUser'];
+
+  // SELECIONANDO O NOME DO AUTOR
 
   $sql = "SELECT NomeAutor from iftohub.autor WHERE idAutor = $idautor";
   $sql = $pdo->prepare($sql);
   $sql->execute();
 
   $dado = $sql->fetch();
-  $nomeautorp = $dado['NomeAutor']; 
+  $nomeautorp = $dado['NomeAutor'];
+
+  // SELECIONANDO O EMAIL DO AUTOR
+
+  $sql2 = "SELECT Email from iftohub.autor WHERE idAutor = $idautor";
+  $sql2 = $pdo->prepare($sql2);
+  $sql2->execute();
+
+  $dado2 = $sql2->fetch();
+  $emailautor = $dado2['Email']; 
 }
 
 $titulop = addslashes($_POST['tituloprojeto']);
@@ -85,6 +97,8 @@ if(isset($_FILES['artigopdf'])){
             $areaconhecimentop = 'MULTIDISCIPLINAR';
         }
 
+        // ENVIANDO E-MAIL PARA A EQUIPE DE ADM
+
         $subject = 'Uma nova solicitação de inserção de projeto foi criada!';
         $subject = utf8_decode($subject);
 
@@ -120,6 +134,44 @@ if(isset($_FILES['artigopdf'])){
         } catch (Exception $e){
         echo "Erro ao enviar mensagem: {$mailpp->ErrorInfo}";
         }
+
+        // ENVIANDO E-MAIL PARA O AUTOR DO PROJETO
+
+        $subject2 = 'Verificamos sua solicitação de inserção no site iFTOHub!';
+        $subject2 = utf8_decode($subject2);
+
+        $msgmailpp2 = "Olá <b>$nomeautorp</b>! Verificamos que você solicitou a inserção de um projeto de título: <b>$titulop</b>, aguarde a nossa equipe de adms confirmar/reprovar o projeto, quando tal ação for efetuada você receberá um e-mail com mais informações!";
+        $msgmailpp2 = utf8_decode($msgmailpp2);
+
+        try{
+            //$mailpp->SMTPDebug = SMTP::DEBUG_SERVER;
+            $mailpp2->isSMTP();
+            $mailpp2->Host = 'smtp.gmail.com';
+            $mailpp2->SMTPAuth = true;
+            $mailpp2->Username ='hubifto@gmail.com';
+            $mailpp2->Password ='23112019';
+            $mailpp2->SMTPOptions = array(
+                'ssl' => array(
+                    'verify_peer' => false,
+                    'verify_peer_name' => false,
+                    'allow_self_signed' => true
+                )
+            );
+            $mailpp2->Port = 587;
+    
+            $mailpp2->setFrom('hubifto@gmail.com');
+            $mailpp2->addAddress($emailautor);
+    
+            $mailpp2->isHTML(true);
+            $mailpp2->Subject = $subject2;
+            $mailpp2->Body = $msgmailpp2;
+            $mailpp2->AltBody = $msgmailpp2;
+            $mailpp2->send();
+    
+            header('Location: projeto.php');
+            } catch (Exception $e){
+            echo "Erro ao enviar mensagem: {$mailpp2->ErrorInfo}";
+            }
     }
     else{
         $_SESSION['uploaderror'] = true;
