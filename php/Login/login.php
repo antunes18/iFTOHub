@@ -8,14 +8,16 @@ else{
 ?>
 <!DOCTYPE html>
 <!-- saved from url=(0059)https://getbootstrap.com/docs/4.4/examples/floating-labels/ -->
-<html lang="pt-br"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="pt-br">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Login</title>
     <link rel="icon" href="../../img/logoifhub.png">
-    <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/floating-labels.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
