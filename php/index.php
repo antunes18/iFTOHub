@@ -79,6 +79,13 @@ else
 			.page-link:hover {
 			  color: #0a5517;
 			}
+			#repGitHub {
+				color: #B30900;
+			}
+			#repGitHub:hover {
+				text-decoration: none;
+				color: #2F9E41;
+			}
 		</style>
 	</head>
 	<body>
@@ -324,9 +331,7 @@ else
 		<footer class="text-muted">
 			<div class="container">
 				<p class="float-right">
-				<p class="text-center">Repositório Institucional (RI) para o IFTO.</p>
-				<a href="index.php" class="float-right">Voltar ao topo da página (ñ funfa ainda)</a>
-				</p>
+				<p class="text-center"><a href="https://github.com/Antunes2003/iFTOHub" target="_blank" id="repGitHub">Repositório no <i>GitHub</i></a></p>
 			</div>
 		</footer>
 		<script src="../js/index.js"></script>
