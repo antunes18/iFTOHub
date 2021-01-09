@@ -334,6 +334,7 @@ else
 				<p class="text-center"><a href="https://github.com/Antunes2003/iFTOHub" target="_blank" id="repGitHub">Repositório no <i>GitHub</i></a></p>
 			</div>
 		</footer>
+		<script src="../js/barraDePesquisa.js"></script>
 		<script src="../js/index.js"></script>
 		<script src="../js/popper.min.js"></script>
 		<script src="../js/bootstrap.min.js"></script>

@@ -328,18 +328,7 @@ else
             </p>
          </div>
       </footer>
-      <script>
-         // Filtro da barra de pesquisa
-         console.log("Working");
-         $(document).ready(function () {
-           $("#pesquisarInput").on("keyup", function () {
-             var value = $(this).val().toLowerCase();
-             $(".card*").filter(function () {
-               $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-             });
-           });
-         });
-      </script>
+      <script src="../../js/barraDePesquisa.js"></script>
       <script src="../../js/popper.min.js"></script>
       <script src="../../js/bootstrap.min.js"></script>
       <script src="../../js/holder.min.js"></script>

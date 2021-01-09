@@ -155,7 +155,7 @@ else
                   <div class="col-md-4">
                      <div class="card mb-4 box-shadow">
                         <div class="card-body">
-                           <p class="card-text">Hello, World!</p>
+                           <p class="card-text">Artigo da página 2</p>
                            <div hidden class="detalhes-projeto">
                               <p>Araguaina</p>
                               <p>Engenharias</p>
@@ -328,18 +328,7 @@ else
             </p>
          </div>
       </footer>
-      <script>
-         // Filtro da barra de pesquisa
-         console.log("Working");
-         $(document).ready(function () {
-           $("#pesquisarInput").on("keyup", function () {
-             var value = $(this).val().toLowerCase();
-             $(".card*").filter(function () {
-               $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-             });
-           });
-         });
-      </script>
+      <script src="../../js/barraDePesquisa.js"></script>
       <script src="../../js/popper.min.js"></script>
       <script src="../../js/bootstrap.min.js"></script>
       <script src="../../js/holder.min.js"></script>
