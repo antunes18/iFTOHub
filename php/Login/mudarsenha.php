@@ -102,7 +102,7 @@ if(isset($email)  and isset($novasenha)){
     </header>
 <form class="form-signin" method="post" action="mudarsenha.php">
       <div class="text-center mb-4">
-        <h1 class="mb-3 mt-5 font-weight-normal">Redefina sua senha =)!</h1>
+        <h1 class="mb-3 mt-5 font-weight-normal">Redefina sua senha</h1>
       </div>
     <p class="mt-5"></p>
     <div class="form-group w-50 m-auto" id="div-senha">

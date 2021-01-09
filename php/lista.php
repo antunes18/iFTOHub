@@ -57,7 +57,7 @@ global $pdo;
                 <div class="col-sm-4 offset-md-1 py-4">
                 <h4 class="text-white">Contato</h4>
                 <ul class="list-unstyled">
-                    <li><a href="Contato/contato.php" class="text-white">Falar com os administradores</a></li>
+                    <li><a href="Contato/contato.php" class="text-white">Falar com os desenvolvedores</a></li>
                 </ul>
                 </div>
             </div>

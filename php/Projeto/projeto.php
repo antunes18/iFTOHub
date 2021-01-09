@@ -103,7 +103,7 @@ if(isset($_SESSION['idUser'])){
             <div class="col-sm-4 offset-md-1 py-4">
               <h4 class="text-white">Contato</h4>
               <ul class="list-unstyled">
-                <li><a href="../Contato/contato.php" class="text-white">Falar com os administradores</a></li>
+                <li><a href="../Contato/contato.php" class="text-white">Falar com os desenvolvedores</a></li>
               </ul>
             </div>
           </div>
@@ -134,7 +134,7 @@ if(isset($_SESSION['idUser'])){
             if($_SESSION['uploadtrue']==true){
             ?>
             <div class="alert alert-success" role="alert">
-              Projeto enviado com sucesso :-D!
+              Solicitação de inserção enviada com sucesso! Aguarde a resposta dos desenvolvedores.
             </div>
             <?php
             }}

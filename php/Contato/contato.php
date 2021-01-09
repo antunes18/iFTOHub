@@ -91,7 +91,7 @@ if(isset($_SESSION['idUser'])){
             <div class="col-sm-4 offset-md-1 py-4">
               <h4 class="text-white">Contato</h4>
               <ul class="list-unstyled">
-                <li><a href="contato.php" class="text-white">Falar com os administradores</a></li>
+                <li><a href="contato.php" class="text-white">Falar com os desenvolvedores</a></li>
               </ul>
             </div>
           </div>
@@ -137,7 +137,7 @@ if(isset($_SESSION['idUser'])){
             <div class="form-group">
                 <label for="assunto">Assunto:</label>
                 <select class="form-control" id="assunto" name="assunto" required>
-                    <option select disabled>Do que se trata?</option>
+                    <option select select disabled>Do que se trata?</option>
                     <option value="Dúvida">Dúvida</option> 
                     <option value="Sugestão">Sugestão</option>
                     <option value="Crítica">Crítica</option>
