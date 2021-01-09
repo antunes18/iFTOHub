@@ -26,8 +26,8 @@ else
   <div class='clearfix'>
     <p id='welcome' class='float-left alert alert-success'>Bem-vind@, " . strtoupper($nomeuser) . "</p>
     <a id='exit' class='alert alert-dark float-right text-center' href='Login/sair.php' title='Sair da sessão'>Sair</a>
-  </div>";
-?>
+	</div>";
+	?>
 <?php
 }
 ?>
@@ -104,7 +104,7 @@ else
 						</div>
 						<?php
 							if(isset($_SESSION['idUser'])){
-							?>
+								?>
 						<div class="col-md-4 py-2">
 							<h4 class="text-white">Senha</h4>
 							<ul class="list-unstyled">
@@ -125,9 +125,9 @@ else
 					</a>
 					<?php
 						if(isset($email)){
-						  if($email == 'hubifto@gmail.com'){
-						    echo "<a href='lista.php' id='lista' title='Projetos pendentes'><i class='fas fa-exclamation-triangle'></i></a>";
-						  }
+							if($email == 'hubifto@gmail.com'){
+								echo "<a href='lista.php' id='lista' title='Projetos pendentes'><i class='fas fa-exclamation-triangle'></i></a>";
+							}
 						}
 						?>
 					<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
@@ -139,8 +139,8 @@ else
 		<main role="main">
 			<section class="jumbotron text-center">
 				<div class="container">
-					<h1 class="jumbotron-heading">TEXTO [h1]</h1>
-					<p class="lead text-muted">DESCRIÇÃO BREVE</p>
+					<h1 class="jumbotron-heading font-weight-bold" id="bvMsg"></h1>
+					<p class="lead" id="intro"></p>
 					<p>
 						<a href="Projeto/projeto.php" class="btn my-2" title="Solicitar inserção de projeto">Inserir projeto</a>
 					</p>
@@ -329,17 +329,7 @@ else
 				</p>
 			</div>
 		</footer>
-		<script>
-			// Filtro da barra de pesquisa
-			$(document).ready(function () {
-			  $("#pesquisarInput").on("keyup", function () {
-			    var value = $(this).val().toLowerCase();
-			    $(".card*").filter(function () {
-			      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-			    });
-			  });
-			});
-		</script>
+		<script src="../js/index.js"></script>
 		<script src="../js/popper.min.js"></script>
 		<script src="../js/bootstrap.min.js"></script>
 		<script src="../js/holder.min.js"></script>
