@@ -85,12 +85,12 @@ else{
       <div class="form-group">
         <span><img src="../../icons/person.svg" alt="person icon" height="32" width="32"></span>
         <label for="campoNome">Nome completo</label>
-        <input type="text" name="nome" id="campoNome" class="form-control" style="text-transform: uppercase;" required autofocus title="Digite seu nome completo">
+        <input type="text" name="nome" id="campoNome" class="form-control" style="text-transform: uppercase;" required autofocus title="Digite seu nome completo" autocomplete="off">
       </div>
     <div class="form-group">
       <span><img src="../../icons/envelope.svg" alt="email icon" height="32" width="32"></span>
       <label for="campoEmail"><i>Email</i></label>
-      <input type="email" name="email" id="campoEmail" class="form-control" required minlength="11" title="Digite seu e-mail">
+      <input type="email" name="email" id="campoEmail" class="form-control" required minlength="11" title="Digite seu e-mail" autocomplete = "off">
     </div>
     <div class="form-group" id="div-senha">
       <span><img src="../../icons/lock.svg" alt="password icon" height="32" width="32"></span>

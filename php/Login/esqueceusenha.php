@@ -102,7 +102,7 @@ try{
         <form action="esqueceusenha.php" method="POST">
             <label for="email"><strong>Digite o e-mail da sua conta:</label>
             <br>
-            <input class='form-control w-50 m-auto' placeholder="Digite seu email" type="email" name="email" required>
+            <input class='form-control w-50 m-auto' placeholder="Digite seu email" type="email" name="email" required autocomplete = "off">
             <input class="btn mt-3" type="submit" name="ok" value="Gerar Código" title="Gerar código">
         </form>
 </div>

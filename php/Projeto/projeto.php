@@ -128,7 +128,7 @@ if(isset($_SESSION['idUser'])){
               <p class="lead text-muted">Preencha os campos abaixo</p>
             </div>
           </section>
-          <form action="processaprojeto.php" method="post" class="form-group" enctype="multipart/form-data" id="form-projeto">
+          <form action="processaprojeto.php" method="post" class="form-group" enctype="multipart/form-data" id="form-projeto" autocomplete = "off">
           <?php
             if(isset($_SESSION['uploadtrue'])){
             if($_SESSION['uploadtrue']==true){
@@ -156,16 +156,16 @@ if(isset($_SESSION['idUser'])){
             </div>
             <div class="form-group">
                 <label for="InputOrien">Coorientador(a):</label>
-                <input type="text" name="coorientador" id="Coorientador" class="form-control" required> 
+                <input type="text" name="coorientador" id="Coorientador" class="form-control"> 
             </div>
             <div class="form-group">
                 <label for="anop">Ano:</label>
-                <input type="number" name="anop" id="anop" class="form-control" required min="2008" max="2099" step="1"> 
+                <input type="number" name="anop" id="anop" class="form-control" required min="2008" max="2021" step="1" > 
             </div>
             <div class="form-group">
                 <label for="aconhe">Área do conhecimento:</label>
                 <select class="form-control" name="aconhe" id="aconhe" required>
-                    <option value="null" selected>Do que se trata?</option>
+                    <option value="null" selected disabled>Do que se trata?</option>
                     <option value="cet">CIÊNCIAS EXATAS E DA TERRA</option> 
                     <option value="cb">CIÊNCIAS BIOLÓGICAS</option>
                     <option value="eng">ENGENHARIAS</option>
@@ -180,7 +180,7 @@ if(isset($_SESSION['idUser'])){
             <div class="form-group">
                 <label for="artigopdf">Documento (em .pdf):</label>
                 <div>
-                  <input type="file" class="form-control" name="artigopdf" id="artigopdf" accept="application/pdf" required>
+                  <input type="file" class="form-control" name="artigopdf" id="artigopdf" accept="application/pdf" required autocomplete = "off">
                 </div>
             </div>
             <div class="text-center mt-4">
