@@ -332,6 +332,11 @@ else
 							<div class="card mb-4 box-shadow">
 								<div class="card-body">
 									<p class="card-text">Desenvolvimento De Cadeira De Rodas Inteligente Com Sistema De Recarga Por Energia Solar</p>
+									<div hidden class="detalhes-projeto">
+										<p>Araguaína</p>
+										<p>Engenharias</p>
+										<p>2019</p>
+									</div>
 									<div class="d-flex justify-content-between align-items-center">
 										<div class="btn-group">
 											<a href="Projeto/artigos/artigo09.pdf">
