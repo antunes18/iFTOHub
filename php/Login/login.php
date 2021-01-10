@@ -50,7 +50,6 @@ else
     <form class="form-signin" method="POST" action="processalogin.php" autocomplete="off">
   <div class="text-center mb-4">
     <a href="../index.php"><img class="mb-4" src="../../img/logoifhub.png" alt="Aqui vai a logo do site (img)" width="72" height="72" title="Voltar para a página inicial"></a>
-    <p class="lead">Bem-vinda(o) de volta!</p>
   </div>
     <?php
     if (isset($_SESSION['erro']))
