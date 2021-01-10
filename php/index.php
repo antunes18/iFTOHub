@@ -163,20 +163,20 @@ else
 						<div class="col-md-4">
 							<div class="card mb-4 box-shadow">
 								<div class="card-body">
-									<p class="card-text">Hello, World!</p>
+									<p class="card-text">iFTOHub: Uma Proposta De Repositório Institucional</p>
 									<div hidden class="detalhes-projeto">
-										<p>Araguaina</p>
+										<p>Araguaína</p>
 										<p>Engenharias</p>
 										<p>2020</p>
 									</div>
 									<div class="d-flex justify-content-between align-items-center">
 										<div class="btn-group">
-											<a href="Projeto/artigos/iftohub-caso-de-uso-thiago%20antunes%20dos%20santos.pdf">
-											<button type="button" class="btn btn-sm btn-outline-secondary">Download</button>
+											<a href="#">
+												<button type="button" class="btn btn-sm rounded">Baixar</button>
 											</a>
-											<button type="button" onclick="printJS('iFTOHub/php/Projeto/artigos/iftohub-caso-de-uso-thiago antunes dos santos.pdf')" class="btn btn-sm ml-2 btn-outline-secondary">Imprimir</button>
+											<button type="button" onclick="printJS('#')" class="btn btn-sm ml-2 rounded">Imprimir</button>
 										</div>
-										<!--                     <small class="text-muted">9 mins</small> -->
+										<small class="text-muted">IFTO</small>
 									</div>
 								</div>
 							</div>
@@ -184,20 +184,83 @@ else
 						<div class="col-md-4">
 							<div class="card mb-4 box-shadow">
 								<div class="card-body">
-									<p class="card-text">O combate a pedofilia no Brasil.</p>
+									<p class="card-text">Uso Do Instagram Para Disseminação De Conhecimento Matemático: Uma Experiência No Campus Araguaína</p>
 									<div hidden class="detalhes-projeto">
-										<p>Palmas</p>
-										<p>Ciências Sociais</p>
+										<p>Araguaína</p>
+										<p>2019</p>
+										<p>Ciências Exatas E Da Terra</p>
+									</div>
+									<div class="d-flex justify-content-between align-items-center">
+										<div class="btn-group">
+											<a href="Projeto/artigos/artigo02.pdf">
+												<button type="button" class="btn btn-sm rounded">Baixar</button>
+											</a>
+											<button type="button" onclick="printJS('iFTOHub/php/Projeto/artigos/artigo02.pdf')" class="btn btn-sm ml-2 rounded">Imprimir</button>
+										</div>
+										<small class="text-muted">JICE</small>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card mb-4 box-shadow">
+								<div class="card-body">
+									<p class="card-text">Contribuição Do Esporte Na Saúde Mental</p>
+									<div hidden class="detalhes-projeto">
+										<p>Araguaína</p>
+										<p>Ciências Humanas</p>
+										<p>2019</p>
+									</div>
+									<div class="d-flex justify-content-between align-items-center">
+										<div class="btn-group">
+											<a href="Projeto/artigos/artigo03.pdf">
+												<button type="button" class="btn btn-sm rounded">Baixar</button>
+											</a>
+											<button type="button" class="btn btn-sm ml-2 rounded" onclick="printJS('iFTOHub/php/Projeto/artigos/artigo03.pdf')">Imprimir</button>
+										</div>
+										<small class="text-muted">JICE</small>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card mb-4 box-shadow">
+								<div class="card-body">
+									<p class="card-text">Desenvolvimento De Cadeira De Rodas Inteligente Para Pessoas Com Mobilidade Reduzida</p>
+									<div hidden class="detalhes-projeto">
+										<p>Araguaína</p>
+										<p>Engenharias</p>
+										<p>2019</p>
+									</div>
+									<div class="d-flex justify-content-between align-items-center">
+										<div class="btn-group">
+											<a href="Projeto/artigos/artigo04.pdf">
+												<button type="button" class="btn btn-sm rounded">Baixar</button>
+											</a>
+											<button type="button" class="btn btn-sm ml-2 rounded" onclick="printJS('iFTOHub/php/Projeto/artigos/artigo04.pdf')">Imprimir</button>
+										</div>
+										<small class="text-muted">MOCISSPA</small>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card mb-4 box-shadow">
+								<div class="card-body">
+									<p class="card-text">Sensor De Identificação Dos Estágios De Coloração De Frutas E Suas Variações Para Deficientes Visuais - SIFDEV</p>
+									<div hidden class="detalhes-projeto">
+										<p>Araguaína</p>
+										<p>Engenharias</p>
 										<p>2020</p>
 									</div>
 									<div class="d-flex justify-content-between align-items-center">
 										<div class="btn-group">
-											<a href="Projeto/artigos/ADEMIR-pedro%20sites.pdf">
-											<button type="button" class="btn btn-sm btn-outline-secondary">Baixar</button>
-											</a>
-											<button type="button" onclick="printJS('iFTOHub/php/Projeto/artigos/TESTE-Ching Chang Hon Chi.pdf')"class="btn btn-sm btn-outline-secondary">Imprimir</button>
-										</div>
-										<small class="text-muted">9 mins</small>
+										<a href="Projeto/artigos/artigo05.pdf">
+											<button type="button" class="btn btn-sm rounded">Baixar</button>
+										</a>
+										<button type="button" class="btn btn-sm ml-2 rounded" onclick="printJS('iFTOHub/php/Projeto/artigos/artigo05.pdf')">Imprimir</button>
+									</div>
+										<small class="text-muted">FEBRACE</small>
 									</div>
 								</div>
 							</div>
@@ -205,18 +268,20 @@ else
 						<div class="col-md-4">
 							<div class="card mb-4 box-shadow">
 								<div class="card-body">
-									<p class="card-text">Os impactos da pandemia no sistema carcerário brasileiro.</p>
+									<p class="card-text">A Troca Da Enxada Pelo Lápis: Análise Do Processo De Protagonismo Acadêmico De Corpos Negro</p>
 									<div hidden class="detalhes-projeto">
-										<p>Colinas do Tocantins</p>
+										<p>Araguaína</p>
 										<p>Ciências Sociais</p>
 										<p>2019</p>
 									</div>
 									<div class="d-flex justify-content-between align-items-center">
 										<div class="btn-group">
-											<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-											<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+											<a href="Projeto/artigos/artigo06.pdf">
+												<button type="button" class="btn btn-sm rounded">Baixar</button>
+											</a>
+											<button type="button" class="btn btn-sm ml-2 rounded" onclick="printJS('iFTOHub/php/Projeto/artigos/artigo06.pdf')">Imprimir</button>
 										</div>
-										<small class="text-muted">9 mins</small>
+										<small class="text-muted">JICE</small>
 									</div>
 								</div>
 							</div>
@@ -224,13 +289,20 @@ else
 						<div class="col-md-4">
 							<div class="card mb-4 box-shadow">
 								<div class="card-body">
-									<p class="card-text">A democratização do acesso ao cinema no Brasil.</p>
+									<p class="card-text">Suporte Para Maçaneta De Porta E Dispensador De Álcool Automático Como Alternativa Para Reduzir A Disseminação Do Coronavírus</p>
+									<div hidden class="detalhes-projeto">
+										<p>Araguaína</p>
+										<p>Engenharias</p>
+										<p>2020</p>
+									</div>
 									<div class="d-flex justify-content-between align-items-center">
 										<div class="btn-group">
-											<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-											<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-										</div>
-										<small class="text-muted">9 mins</small>
+										<a href="Projeto/artigos/artigo07.pdf">
+											<button type="button" class="btn btn-sm rounded">Baixar</button>
+										</a>
+										<button type="button" class="btn btn-sm ml-2 rounded" onclick="printJS('iFTOHub/php/Projeto/artigos/artigo07.pdf')">Imprimir</button>
+									</div>
+										<small class="text-muted">IFTO</small>
 									</div>
 								</div>
 							</div>
@@ -238,13 +310,20 @@ else
 						<div class="col-md-4">
 							<div class="card mb-4 box-shadow">
 								<div class="card-body">
-									<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+									<p class="card-text">Fatores Condicionantes Para Reprovação/Desistência Dos Alunos Dos Cursos Técnicos Integrados Ao Ensino Médio No IFTO Campus Araguaína</p>
+									<div hidden class="detalhes-projeto">
+										<p>Araguaína</p>
+										<p>Ciências Humanas</p>
+										<p>2019</p>
+									</div>
 									<div class="d-flex justify-content-between align-items-center">
 										<div class="btn-group">
-											<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-											<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+										<a href="Projeto/artigos/artigo08.pdf">
+											<button type="button" class="btn btn-sm rounded">Baixar</button>
+										</a>
+											<button type="button" class="btn btn-sm ml-2 rounded" onclick="printJS('iFTOHub/php/Projeto/artigos/artigo08.pdf')">Imprimir</button>
 										</div>
-										<small class="text-muted">9 mins</small>
+										<small class="text-muted">JICE</small>
 									</div>
 								</div>
 							</div>
@@ -252,55 +331,15 @@ else
 						<div class="col-md-4">
 							<div class="card mb-4 box-shadow">
 								<div class="card-body">
-									<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+									<p class="card-text">Desenvolvimento De Cadeira De Rodas Inteligente Com Sistema De Recarga Por Energia Solar</p>
 									<div class="d-flex justify-content-between align-items-center">
 										<div class="btn-group">
-											<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-											<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+											<a href="Projeto/artigos/artigo09.pdf">
+												<button type="button" class="btn btn-sm rounded">Baixar</button>
+											</a>
+											<button type="button" class="btn btn-sm ml-2 rounded" onclick="printJS('iFTOHub/php/Projeto/artigos/artigo09.pdf')">Imprimir</button>
 										</div>
-										<small class="text-muted">9 mins</small>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="card mb-4 box-shadow">
-								<div class="card-body">
-									<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-									<div class="d-flex justify-content-between align-items-center">
-										<div class="btn-group">
-											<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-											<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-										</div>
-										<small class="text-muted">9 mins</small>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="card mb-4 box-shadow">
-								<div class="card-body">
-									<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-									<div class="d-flex justify-content-between align-items-center">
-										<div class="btn-group">
-											<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-											<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-										</div>
-										<small class="text-muted">9 mins</small>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="card mb-4 box-shadow">
-								<div class="card-body">
-									<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-									<div class="d-flex justify-content-between align-items-center">
-										<div class="btn-group">
-											<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-											<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-										</div>
-										<small class="text-muted">9 mins</small>
+										<small class="text-muted">FBJC</small>
 									</div>
 								</div>
 							</div>
@@ -328,7 +367,7 @@ else
 				</nav>
 			</div>
 		</main>
-		<footer class="text-muted">
+		<footer class="text-muted box-shadow shadow p-3">
 			<div class="container">
 				<p class="float-right">
 				<p class="text-center"><a href="https://github.com/Antunes2003/iFTOHub" target="_blank" id="repGitHub">Repositório no <i>GitHub</i></a></p>
