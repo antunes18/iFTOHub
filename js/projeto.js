@@ -21,7 +21,6 @@ $(function () {
 		            apenasletras: true
                 },
                 coorientador: {
-                    required: true,
                     apenasletras: true
                 },
                 tituloprojeto: {
@@ -31,9 +30,6 @@ $(function () {
             messages: {
                 orientador: {
                     required: "Nome do(a) orientador(a) é fundamental."
-                },
-                coorientador: {
-                    required: "Nome do(a) coorientador(a) é preciso."
                 },
                 tituloprojeto: {
                     required: "Título do projeto é essencial"
