@@ -171,10 +171,10 @@ else
 									</div>
 									<div class="d-flex justify-content-between align-items-center">
 										<div class="btn-group">
-											<a href="#">
+											<a href="Projeto/artigos/iFTOHub Uma Proposta de Repositorio Institucional para o IFTO.pdf">
 												<button type="button" class="btn btn-sm rounded">Baixar</button>
 											</a>
-											<button type="button" onclick="printJS('#')" class="btn btn-sm ml-2 rounded">Imprimir</button>
+											<button type="button" onclick="printJS('iFTOHub/php/Projeto/artigos/iFTOHub Uma Proposta de Repositorio Institucional para o IFTO.pdf')" class="btn btn-sm ml-2 rounded">Imprimir</button>
 										</div>
 										<small class="text-muted">IFTO</small>
 									</div>
