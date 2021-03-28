@@ -33,8 +33,3 @@ dissemination of scientific knowledge.</i></p>
 * [Git](https://git-scm.com/)
 * [GitHub](https://github.com/)
 * [Visual Studio Code](https://code.visualstudio.com/)
-
-<div align="center">
-  <img width="400" style="opacity:0.5;" src="https://ik.imagekit.io/3wlkmsja1cv/achei-foi-ouro_0stMgWrmQ.jpg"></img>
-  <img style="opacity:0.5;" src="https://ik.imagekit.io/3wlkmsja1cv/s_-o-file_08_ntkYN1.png" title="Só ô filé"></img>
-</div>
