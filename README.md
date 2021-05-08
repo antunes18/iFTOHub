@@ -2,7 +2,7 @@
     <img width="200" src="https://ik.imagekit.io/3wlkmsja1cv/logoifhub__emiZPFmb.png" alt="web-site-logo" title="iFTOHub logo">
 </p>
 
-<strong><h1 align="center"><a href="https://drive.google.com/file/d/100jGdQSBOeF10JaAyB5VFPz8zftFeC28/view?usp=sharing" title="Ler artigo (Read article)">iFTOHub: Uma Proposta De Repositorio Institucional para o IFTO</h1></a></strong>
+<strong><h1 align="center"><a href="https://drive.google.com/file/d/100jGdQSBOeF10JaAyB5VFPz8zftFeC28/view?usp=sharing" title="Ler artigo (Read article)">iFTOHub: Uma Proposta de Repositorio Institucional para o IFTO</h1></a></strong>
 
 <p align="center"><img src="https://ik.imagekit.io/3wlkmsja1cv/iFTOHUB_QWvLU8qb8.gif" style="vertical-align:middle" title="iFTOHub GIF"></p>
 
